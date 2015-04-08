@@ -1,4 +1,4 @@
-@import url("../CherryFramework/style.css");
+@import url("style.css");
 @import url(//fonts.googleapis.com/css?family=Lato:400,300,100,700,900);
 @import url("btn.css");
 .main-holder {
@@ -1951,12 +1951,12 @@ nav.nav.footer-nav ul li.current-menu-item a, nav.nav.footer-nav ul li a:hover {
 }
 .copyright { padding:40px 0; }
 .zoom-icon { background:none !important; }
-.ie8 .zoom-icon { background:url(images/zoom-bg.png) !important; }
+.ie8 .zoom-icon { background:url(../images/zoom-bg.png) !important; }
 .zoom-icon:after {
 	content:'';
 	width:100%;
 	height:100%;
-	background:url(images/zoom-bg.png);
+	background:url(../images/zoom-bg.png);
 	position:absolute;
 	top:0;
 	right:0;
@@ -1974,7 +1974,7 @@ nav.nav.footer-nav ul li.current-menu-item a, nav.nav.footer-nav ul li a:hover {
 .ie8 .zoom-icon:after { display:none; }
 .zoom-icon:before {
 	content:'';
-	background:url(images/zoom.png);
+	background:url(../images/zoom.png);
 	width:39px;
 	height:39px;
 	margin:-20px 0 0 -20px;
@@ -2025,7 +2025,7 @@ nav.nav.footer-nav ul li.current-menu-item a, nav.nav.footer-nav ul li a:hover {
 	box-sizing:border-box;
 }
 #back-top-wrapper #back-top a:after {
-	content:'';
+	content:'ï€›';
 	font:40px/46px FontAwesome;
 	color:#fff;
 	display:inline-block;
@@ -2425,7 +2425,7 @@ blockquote p { line-height:22px; }
 	display:block;
 	position:relative;
 	z-index:1;
-	background:url(images/nav-slider.png) no-repeat -52px 0;
+	background:url(../images/nav-slider.png) no-repeat -52px 0;
 	-webkit-transition:all 0.3s ease;
 	-moz-transition:all 0.3s ease;
 	-o-transition:all 0.3s ease;
