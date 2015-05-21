@@ -184,7 +184,7 @@
 
         
 
-        <headerDirective></headerDirective>
+        
         
         
         <header class="motopress-wrapper header">
@@ -260,6 +260,7 @@
                                 <section class="title-section">
                                     <h1 class="title-header">
 Inside The Hell  </h1>
+                                    <headerDirective></headerDirective>
 
                                     <ul class="breadcrumb breadcrumb__t">
                                         <li><a href="http://www.theblacksoulcompany.com">Home</a>
@@ -277,109 +278,33 @@ Inside The Hell  </h1>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="span8 right right" id="content" data-motopress-type="loop" data-motopress-loop-file="loop/loop-single.php">
-                                <article id="post-71" class="post-71 post type-post status-publish format-standard has-post-thumbnail hentry category-incididunt-ut-labore tag-augue-quis tag-bibendum-mauris tag-elit tag-ipsum-dolor tag-tempor post__holder cat-1-id">
-                                    <figure class="featured-thumbnail thumbnail large"><img src="images/firstpage/ITH-Logo.png" alt="Dolor sit amet conse ctetur adipisicing elit." style="display: inline-block;">
-                                    </figure>
+                            <div class="span8 right right" id="content" data-motopress-type="loop">
+                                
+                                
+                                
+                                
+                                    <?php 
+                                        $db  = mysqli_connect( 'localhost', 'root', '', 'blacksoul'); 
+                                        $sql = 'SELECT * FROM publications'; 
+                                        $result = mysqli_query($db,$sql); 
+                                        $content = "";
 
-                                    <div class="post_content">
-                                        <h3>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-                                        <h3>Praesent justo dolor, lobortis quis.</h3>
-                                        <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                                        <div class="clear"></div>
-                                    </div>
+                                            foreach($result as $row){
+                                                $content = $row['author'];
+                                                echo $row[ 'content']; 
+                                            } 
 
-
-                                    <div class="post_meta meta_type_line">
-                                        <div class="post_meta_unite clearfix">
-                                            <div class="meta_group clearfix">
-                                                <div class="post_category">
-                                                    <i class="icon-bookmark"></i>
-                                                    <a href="#" rel="category tag">Incididunt ut labore</a> </div>
-                                                <div class="post_date">
-                                                    <i class="icon-calendar"></i>
-                                                    <time datetime="2013-03-14T20:28:57">March 14, 2013</time>
-                                                </div>
-                                                <div class="post_author">
-                                                    <i class="icon-user"></i>
-                                                    <a href="#" title="Posts by admin" rel="author">admin</a> </div>
-                                                <div class="post_comment">
-                                                    <i class="icon-comments"></i>
-                                                    <a href="#" class="comments-link" title="Comment on Dolor sit amet conse ctetur adipisicing elit.">3 comments</a> </div>
-                                            </div>
-                                            <div class="meta_group clearfix"></div>
-                                            <div class="meta_group clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                <script>
-                                    (function (d, s, id) {
-                                        var js, fjs = d.getElementsByTagName(s)[0];
-                                        if (d.getElementById(id)) {
-                                            return;
-                                        }
-                                        js = d.createElement(s);
-                                        js.id = id;
-                                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                                        fjs.parentNode.insertBefore(js, fjs);
-                                    }(document, 'script', 'facebook-jssdk'));
-                                </script>
-
-                                <script type="text/javascript">
-                                    (function () {
-                                        var po = document.createElement('script');
-                                        po.type = 'text/javascript';
-                                        po.async = true;
-                                        po.src = '//apis.google.com/js/plusone.js';
-                                        var s = document.getElementsByTagName('script')[0];
-                                        s.parentNode.insertBefore(po, s);
-                                    })();
-                                </script>
-                                <ul class="share-buttons unstyled clearfix">
-                                    <li class="twitter">
-                                        <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="#" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 78px; height: 20px;"></iframe>
-                                        <script>
-                                            ! function (d, s, id) {
-                                                var js, fjs = d.getElementsByTagName(s)[0],
-                                                    p = /^http:/.test(d.location) ? 'http' : 'https';
-                                                if (!d.getElementById(id)) {
-                                                    js = d.createElement(s);
-                                                    js.id = id;
-                                                    js.src = p + '://platform.twitter.com/widgets.js';
-                                                    fjs.parentNode.insertBefore(js, fjs);
-                                                }
-                                            }(document, 'script', 'twitter-wjs');
-                                        </script>
-                                    </li>
-                                    <li class="facebook">
-                                        <div id="fb-root" class=" fb_reset">
-                                            <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-                                                <div>
-                                                    <iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="#" style="border: none;"></iframe>
-                                                    <iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="#" style="border: none;"></iframe>
-                                                </div>
-                                            </div>
-                                            <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-                                                <div></div>
-                                            </div>
-                                        </div>
-                                        <div class="fb-like fb_iframe_widget" data-href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=90&amp;font=arial&amp;href=http%3A%2F%2Flivedemo00.template-help.com%2Fwordpress_51908%2Fincididunt-ut-labore%2Fdolor-sit-amet-conse-ctetur-adipisicing-elit%2F&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=100"><span style="vertical-align: bottom; width: 76px; height: 20px;"><iframe name="f1b430b43c" width="100px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="#" style="border: none; visibility: visible; width: 76px; height: 20px;" class=""></iframe></span>
-                                        </div>
-                                    </li>
-                                    <li class="google">
-                                        <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px; background: transparent;">
-                                            <iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1431968410879" name="I0_1431968410879" src="#" data-gapiattached="true" title="+1"></iframe>
-                                        </div>
-                                    </li>
-                                    <li class="pinterest">
-                                        <a href="javascript:void((function(){var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());"><img src="./link to a game_files/PinExt.png" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
+                                        mysqli_close($db); 
+                                    ?>
+                                
+                         
+                                
+                                
+                                
                                 <div class="post-author clearfix">
-                                    <h3 class="post-author_h">Written by <a href="http://livedemo00.template-help.com/wordpress_51908/author/admin/" title="Posts by admin" rel="author">admin</a></h3>
+                                    <h3 class="post-author_h">
+                                        <?php echo $content;?>
+                                   </h3>
                                     <p class="post-author_gravatar"><img alt="" src="./link to a game_files/b263802e2004e058851acabb4111135e" class="avatar avatar-80 photo" height="80" width="80">
                                     </p>
                                     <div class="post-author_desc">
@@ -390,6 +315,7 @@ Inside The Hell  </h1>
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="related-posts">
                                     <h3 class="related-posts_h">Related Posts</h3>
                                     <ul class="related-posts_list clearfix">
@@ -419,6 +345,7 @@ Inside The Hell  </h1>
                                         </li>
                                     </ul>
                                 </div>
+                                
                                 <div id="comments" class="comment-holder">
                                     <h3 class="comments-h">3 Responses</h3>
                                     <div class="pagination">
