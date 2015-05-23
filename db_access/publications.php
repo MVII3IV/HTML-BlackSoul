@@ -1,5 +1,5 @@
 <?php 
-    $db  = mysqli_connect( 'localhost', 'root', '', 'blacksoul'); 
+    $db  = mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'); 
     $sql = 'SELECT * FROM publications where id = ' . $_GET['id']; 
     $result = mysqli_query($db,$sql); 
     $content = "";
