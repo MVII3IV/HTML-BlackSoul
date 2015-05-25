@@ -8,7 +8,7 @@
     <meta name="description" content=" | "/>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+   
     <title>Black soul</title>
     
     <link rel="icon" href="http://livedemo00.template-help.com/wordpress_51908/wp-content/themes/theme51908/favicon.ico" type="image/x-icon" />
@@ -33,22 +33,22 @@
     <link rel='stylesheet' id='mpce-bootstrap-grid-css' href='css/bootstrap-grid.min.css' type='text/css' media='all' />
     <link rel='stylesheet' id='mpce-theme-css' href='css/theme.css' type='text/css' media='all' />
 
-    <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
+    <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
     <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
-    <script type='text/javascript' src='js/btn.js'></script>
-    <script type='text/javascript' src='js/parallaxSlider.js'></script>
-    <script type='text/javascript' src='js/smoothing-scroll.js'></script>
-    <script type='text/javascript' src='js/my_script.js'></script>
-    <script type='text/javascript' src='js/search.js'></script>
-    <script type='text/javascript' src='js/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
-    <script type='text/javascript' src='js/swfobject.js'></script>
-    <script type='text/javascript' src='js/modernizr.js?ver=2.0.6'></script>
-    <script type='text/javascript' src='js/jflickrfeed.js?ver=1.0'></script>
-    <script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
-    <script type='text/javascript' src='js/custom.js?ver=1.0'></script>
-    <script type='text/javascript' src='js/bootstrap.min.js'></script>
-    <script type='text/javascript' src='js/jquery.elastislide.js'></script>
+    <script type='text/javascript' src='js/generics/btn.js'></script>
+    <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
+    <script type='text/javascript' src='js/generics/smoothing-scroll.js'></script>
+    <script type='text/javascript' src='js/generics/my_script.js'></script>
+    <script type='text/javascript' src='js/generics/search.js'></script>
+    <script type='text/javascript' src='js/generics/jquery-migrate-1.2.1.min.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='js/generics/swfobject.js'></script>
+    <script type='text/javascript' src='js/generics/modernizr.js?ver=2.0.6'></script>
+    <script type='text/javascript' src='js/generics/jflickrfeed.js?ver=1.0'></script>
+    <script type='text/javascript' src='js/generics/jquery.easing.1.3.js'></script>
+    <script type='text/javascript' src='js/generics/custom.js?ver=1.0'></script>
+    <script type='text/javascript' src='js/generics/bootstrap.min.js'></script>
+    <script type='text/javascript' src='js/generics/jquery.elastislide.js'></script>
     <script type='text/javascript' src='//maps.googleapis.com/maps/api/js?v=3.exp&#038;sensor=false&#038;ver=4.0.1'></script>
     <script type='text/javascript' src='//www.google.com/jsapi?ver=1.5.1'></script>
     <script type='text/javascript'>
@@ -56,7 +56,7 @@
             "motopressCE": "0"
         };
     </script>
-    <script type='text/javascript' src='js/mp-google-charts.js'></script>
+    <script type='text/javascript' src='js/generics/mp-google-charts.js'></script>
 
     <style type='text/css'>
         body {
@@ -119,7 +119,7 @@
         }
     </style>
 
-    <script src="js/jquery.mobile.customized.min.js" type="text/javascript"></script>
+    <script src="js/generics/jquery.mobile.customized.min.js" type="text/javascript"></script>
     
     <script type="text/javascript">
         jQuery(function () {
@@ -186,7 +186,7 @@
 
         
         
-        
+        <!--THIS IS THE HEADER SECTION-->
         <header class="motopress-wrapper header">
             <div class="container">
                 <div class="row">
@@ -206,7 +206,7 @@
                                 <div class="span5" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
 
                                     <div class="logo pull-left">
-                                        <a href="http://www.theblacksoulcompany.com" class="logo_h logo_h__img"><img src="images/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
+                                        <a href="http://www.theblacksoulcompany.com" class="logo_h logo_h__img"><img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
                                         </a>
                                     </div>
                                 </div>
@@ -248,35 +248,44 @@
         
         
         
+        
+        
+        
+        
+        
  
         <div class="motopress-wrapper content-holder clearfix">
             <div class="container">
                 <div class="row">
                     <div class="span12" data-motopress-wrapper-file="single.php" data-motopress-wrapper-type="content">
+                        
+                        
+                        
+                        
+                         <!-- BREADCRUMB SECTION-->
                         <div class="row">
                             <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
-                               
-                                
                                 <section class="title-section">
-                                    <h1 class="title-header">
-Inside The Hell  </h1>
+                                    <h1 class="title-header"> {{publication.title}} </h1>
                                    
-
                                     <ul class="breadcrumb breadcrumb__t">
                                         <li><a href="http://www.theblacksoulcompany.com">Home</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Games</a>
+                                        <li><a href="{{http://www.theblacksoulcompany.com}}">{{publication.type | capitalize}}</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li class="active">Inside The Hell</li>
+                                        <li class="active">{{publication.title}}</li>
                                     </ul>
                                 </section>
-                                
-                                
-                                
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        
                         <div class="row">
                             <div class="span8 right right" id="content" data-motopress-type="loop">
                                 
@@ -285,103 +294,30 @@ Inside The Hell  </h1>
                                 
                                 
                                 
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
                                
-                                
-                                <!--USE THIS TEMPLATE TO CREATE YOURS-->
-                                <article id="post-71" class="post-71 post type-post status-publish format-standard has-post-thumbnail hentry category-incididunt-ut-labore tag-augue-quis tag-bibendum-mauris tag-elit tag-ipsum-dolor tag-tempor post__holder cat-1-id">
-                                    <figure class="featured-thumbnail thumbnail large">
-                                        <img src="images/firstpage/ITH-Logo.png" alt="Dolor sit amet conse ctetur adipisicing elit." style="display: inline-block;">
-                                    </figure>
-
-                                    <div class="post_content">
-                                        <h3>Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem.</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus.</p>
-                                        <h3>Praesent justo dolor, lobortis quis.</h3>
-                                        <p>Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                                        <div class="clear"></div>
-                                    </div>
-
-
-                                    <div class="post_meta meta_type_line">
-                                        <div class="post_meta_unite clearfix">
-                                            <div class="meta_group clearfix">
-                                                <div class="post_category">
-                                                    <i class="icon-bookmark"></i>
-                                                    <a href="#" rel="category tag">Incididunt ut labore</a> </div>
-                                                <div class="post_date">
-                                                    <i class="icon-calendar"></i>
-                                                    <time datetime="2013-03-14T20:28:57">March 14, 2013</time>
-                                                </div>
-                                                <div class="post_author">
-                                                    <i class="icon-user"></i>
-                                                    <a href="#" title="Posts by admin" rel="author">admin</a> </div>
-                                                <div class="post_comment">
-                                                    <i class="icon-comments"></i>
-                                                    <a href="#" class="comments-link" title="Comment on Dolor sit amet conse ctetur adipisicing elit.">3 comments</a> </div>
-                                            </div>
-                                            <div class="meta_group clearfix"></div>
-                                            <div class="meta_group clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>  
-                                
-                                
-                         
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
-                                
+<!--HERE GOES THE PUBLICATION-->
+<article>
+    <figure class="featured-thumbnail thumbnail large"> <img src="images/firstpage/ITH-Logo.png" style="display: inline-block;"> </figure>
+    <div >
+        <h3>Inside The Hell is comming</h3>
+        <p>Yo y todo el equipo Black Soul estamos muy contentos de poder compartir con ustedes esta noticia, el desarrollo de nuestro primer video juego y el cual lleva el titulo de Inside The Hell, el cual, sera un juego de terror, con este titulo queremos darnos a conocer como una compañia dedicada a el desarrollo de videojuegos y ofrecer a los jugadores productos de calidad y bien cuidados.</p>
+        <h3>Que puedes esperar de este nuevo titulo?</h3>
+        <p>En Inside de Hell podras esperar una historia muy bien escrita y terror a donde quiera que veas, una ambientacion muy cuidada y detallada ya que nos preocupamos por los mas minimos detalles en cada uno de nuestros juegos, de verdad el equipo de black soul estamos esperando que este juego sea de su agrada, estaremos dando mas noticias poco a poco y desde luego pronto sabremos mas de esta historia.</p>
+    </div>
+</article>
                                 
                                 
                                 
                                 <div class="post-author clearfix">
                                     <h3 class="post-author_h">
-                                       
+                                       {{publication.author}}
                                    </h3>
-                                    <p class="post-author_gravatar"><img alt="" src="./link to a game_files/b263802e2004e058851acabb4111135e" class="avatar avatar-80 photo" height="80" width="80">
+                                    <p class="post-author_gravatar"><img alt="" src="" class="avatar avatar-80 photo" height="80" width="80">
                                     </p>
                                     <div class="post-author_desc">
                                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.
                                         <div class="post-author_link">
-                                            <p>View all posts by: <a href="http://livedemo00.template-help.com/wordpress_51908/author/admin/" title="Posts by admin" rel="author">admin</a>
+                                            <p>View all posts by: <a href="" title="Posts by admin" rel="author">{{publication.author}}</a>
                                             </p>
                                         </div>
                                     </div>
@@ -392,27 +328,27 @@ Inside The Hell  </h1>
                                     <ul class="related-posts_list clearfix">
                                         <li class="related-posts_item">
                                             <figure class="thumbnail featured-thumbnail">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit-sed-do-eiusmod-tempor-incidid/" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid."><img alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." src="./link to a game_files/tom_clancys_ghost_recon_phantoms-wallpaper-1920x1080-250x150.jpg">
+                                                <a href="" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid."><img alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." src="">
                                                 </a>
                                             </figure><a href="#">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.</a>
                                         </li>
                                         <li class="related-posts_item">
                                             <figure class="thumbnail featured-thumbnail">
-                                                <a href="#" title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."><img alt="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." src="./link to a game_files/destiny_dark_patrol-wallpaper-1920x1080-250x150.jpg">
+                                                <a href="#" title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."><img alt="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." src="">
                                                 </a>
                                             </figure><a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</a>
                                         </li>
                                         <li class="related-posts_item">
                                             <figure class="thumbnail featured-thumbnail">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/conse-ctetur-adipisicing/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit/" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit."><img alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit." src="./link to a game_files/lara_croft_enhanced_wallpaper-wallpaper-1920x1080-250x150.jpg">
+                                                <a href="">
                                                 </a>
-                                            </figure><a href="http://livedemo00.template-help.com/wordpress_51908/conse-ctetur-adipisicing/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit/">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a>
+                                            </figure><a href="">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a>
                                         </li>
                                         <li class="related-posts_item">
                                             <figure class="thumbnail featured-thumbnail">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/elit-sed-do-eiusmod-tempor/lorem-ipsum-dolor-sit/" title="Lorem ipsum dolor sit"><img alt="Lorem ipsum dolor sit" src="./link to a game_files/fp2488-assasins-creed-brotherhood-poster-250x150.jpg">
+                                                <a href="" title="Lorem ipsum dolor sit"><img alt="Lorem ipsum dolor sit" src="">
                                                 </a>
-                                            </figure><a href="http://livedemo00.template-help.com/wordpress_51908/elit-sed-do-eiusmod-tempor/lorem-ipsum-dolor-sit/">Lorem ipsum dolor sit</a>
+                                            </figure><a href="">Lorem ipsum dolor sit</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -426,14 +362,14 @@ Inside The Hell  </h1>
                                             <div id="comment-10" class="comment-body clearfix">
                                                 <div class="wrapper">
                                                     <div class="comment-author vcard">
-                                                        <img alt="" src="./link to a game_files/53444f91e698c0c7caa2dbc3bdbf93fc" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
+                                                        <img alt="" src="" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
                                                     <div class="extra-wrap">
                                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
                                                     </div>
                                                 </div>
                                                 <div class="wrapper">
                                                     <div class="reply">
-                                                        <a class="comment-reply-link btn-from-left btn" href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/?replytocom=10#respond" onclick="return addComment.moveForm(&quot;comment-10&quot;, &quot;10&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
+                                                        <a class="comment-reply-link btn-from-left btn" href="" onclick="return addComment.moveForm(&quot;comment-10&quot;, &quot;10&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
                                                     <div class="comment-meta commentmetadata">May 26, 2014</div>
                                                 </div>
                                             </div>
@@ -442,14 +378,14 @@ Inside The Hell  </h1>
                                                     <div id="comment-11" class="comment-body clearfix">
                                                         <div class="wrapper">
                                                             <div class="comment-author vcard">
-                                                                <img alt="" src="./link to a game_files/53444f91e698c0c7caa2dbc3bdbf93fc" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
+                                                                <img alt="" src="" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
                                                             <div class="extra-wrap">
                                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
                                                             </div>
                                                         </div>
                                                         <div class="wrapper">
                                                             <div class="reply">
-                                                                <a class="comment-reply-link btn-from-left btn" href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/?replytocom=11#respond" onclick="return addComment.moveForm(&quot;comment-11&quot;, &quot;11&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
+                                                                <a class="comment-reply-link btn-from-left btn" href="" onclick="return addComment.moveForm(&quot;comment-11&quot;, &quot;11&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
                                                             <div class="comment-meta commentmetadata">May 26, 2014</div>
                                                         </div>
                                                     </div>
@@ -458,14 +394,14 @@ Inside The Hell  </h1>
                                                             <div id="comment-12" class="comment-body clearfix">
                                                                 <div class="wrapper">
                                                                     <div class="comment-author vcard">
-                                                                        <img alt="" src="./link to a game_files/53444f91e698c0c7caa2dbc3bdbf93fc" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
+                                                                        <img alt="" src="" class="avatar avatar-65 photo" height="65" width="65"> <span class="author">admin</span> </div>
                                                                     <div class="extra-wrap">
                                                                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="wrapper">
                                                                     <div class="reply">
-                                                                        <a class="comment-reply-link btn-from-left btn" href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/?replytocom=12#respond" onclick="return addComment.moveForm(&quot;comment-12&quot;, &quot;12&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
+                                                                        <a class="comment-reply-link btn-from-left btn" href="" onclick="return addComment.moveForm(&quot;comment-12&quot;, &quot;12&quot;, &quot;respond&quot;, &quot;71&quot;)"><span data-hover="Reply">Reply</span></a> </div>
                                                                     <div class="comment-meta commentmetadata">May 26, 2014</div>
                                                                 </div>
                                                             </div>
@@ -481,9 +417,9 @@ Inside The Hell  </h1>
                                 <div id="respond">
                                     <h3>Leave a comment</h3>
                                     <div class="cancel-comment-reply">
-                                        <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/#respond" style="display:none;">Click here to cancel reply.</a></small>
+                                        <small><a rel="nofollow" id="cancel-comment-reply-link" href="" style="display:none;">Click here to cancel reply.</a></small>
                                     </div>
-                                    <form action="http://livedemo00.template-help.com/wordpress_51908/wp-comments-post.php" method="post" id="commentform">
+                                    <form action="#" method="post" id="commentform">
                                         <p class="field">
                                             <input type="text" name="author" id="author" value="Name*" onfocus="if(this.value==&#39;Name*&#39;){this.value=&#39;&#39;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;Name*&#39;}" size="22" tabindex="1" aria-required="true">
                                         </p>
@@ -509,15 +445,15 @@ Inside The Hell  </h1>
                                 <div id="categories-2" class="widget">
                                     <h3>Categories</h3>
                                     <ul>
-                                        <li class="cat-item cat-item-3"><a href="http://livedemo00.template-help.com/wordpress_51908/category/conse-ctetur-adipisicing/">Conse ctetur adipisicing</a>
+                                        <li class="cat-item cat-item-3"><a href="">Conse ctetur adipisicing</a>
                                         </li>
-                                        <li class="cat-item cat-item-4"><a href="http://livedemo00.template-help.com/wordpress_51908/category/elit-sed-do-eiusmod-tempor/">Elit sed do eiusmod tempor</a>
+                                        <li class="cat-item cat-item-4"><a href="">Elit sed do eiusmod tempor</a>
                                         </li>
-                                        <li class="cat-item cat-item-5"><a href="http://livedemo00.template-help.com/wordpress_51908/category/et-dolore-magna-aliqua/">Et dolore magna aliqua</a>
+                                        <li class="cat-item cat-item-5"><a href="">Et dolore magna aliqua</a>
                                         </li>
-                                        <li class="cat-item cat-item-1"><a href="http://livedemo00.template-help.com/wordpress_51908/category/incididunt-ut-labore/">Incididunt ut labore</a>
+                                        <li class="cat-item cat-item-1"><a href="">Incididunt ut labore</a>
                                         </li>
-                                        <li class="cat-item cat-item-2"><a href="http://livedemo00.template-help.com/wordpress_51908/category/lorem-ipsum-dolor-sit/">Lorem ipsum dolor sit</a>
+                                        <li class="cat-item cat-item-2"><a href="">Lorem ipsum dolor sit</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -526,19 +462,19 @@ Inside The Hell  </h1>
                                     <ul class="post-list unstyled">
                                         <li class="cat_post_item-1 clearfix">
                                             <figure class="featured-thumbnail thumbnail">
-                                                <img src="./link to a game_files/tom_clancys_ghost_recon_phantoms-wallpaper-1920x1080-100x120.jpg" width="100" height="120" alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">
+                                                <img src="#" width="100" height="120" alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">
                                             </figure>
                                             <time datetime="2014-05-27T06:31">May 27, 2014 6:31 am</time>
-                                            <h4 class="post-list_h"><a class="post-title" href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit-sed-do-eiusmod-tempor-incidid/" rel="bookmark" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.</a></h4>
+                                            <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.</a></h4>
                                             <div class="excerpt">
                                                 Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar... </div>
                                         </li>
                                         <li class="cat_post_item-2 clearfix">
                                             <figure class="featured-thumbnail thumbnail">
-                                                <img src="./link to a game_files/battlefield_4_second_assault-wallpaper-1920x1080-100x120.jpg" width="100" height="120" alt="Dolor sit amet conse ctetur adipisicing elit.">
+                                                <img src="" width="100" height="120" alt="Dolor sit amet conse ctetur adipisicing elit.">
                                             </figure>
                                             <time datetime="2013-03-14T20:28">March 14, 2013 8:28 pm</time>
-                                            <h4 class="post-list_h"><a class="post-title" href="./link to a game_files/link to a game.html" rel="bookmark" title="Dolor sit amet conse ctetur adipisicing elit.">Dolor sit amet conse ctetur adipisicing elit.</a></h4>
+                                            <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Dolor sit amet conse ctetur adipisicing elit.">Dolor sit amet conse ctetur adipisicing elit.</a></h4>
                                             <div class="excerpt">
                                                 Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar... </div>
                                         </li>
@@ -548,7 +484,7 @@ Inside The Hell  </h1>
                                     <h3>Recent Comments</h3>
                                     <ul class="comments-custom unstyled">
                                         <li class="comments-custom_li">
-                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="./link to a game_files/b263802e2004e058851acabb4111135e(1)" class="avatar avatar-64 photo" height="64" width="64">
+                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
                                             </figure>
                                             <div class="meta_format">
                                                 <h4 class="comments-custom_h_author">admin</h4>
@@ -558,11 +494,11 @@ Inside The Hell  </h1>
                                             </div>
                                             <div class="clear"></div>
                                             <div class="comments-custom_txt">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit-sed-do-eiusmod-tempor-incidid/#comment-24" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
+                                                <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
                                             </div>
                                         </li>
                                         <li class="comments-custom_li">
-                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="./link to a game_files/b263802e2004e058851acabb4111135e(1)" class="avatar avatar-64 photo" height="64" width="64">
+                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
                                             </figure>
                                             <div class="meta_format">
                                                 <h4 class="comments-custom_h_author">admin</h4>
@@ -572,11 +508,11 @@ Inside The Hell  </h1>
                                             </div>
                                             <div class="clear"></div>
                                             <div class="comments-custom_txt">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit-sed-do-eiusmod-tempor-incidid/#comment-23" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
+                                                <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
                                             </div>
                                         </li>
                                         <li class="comments-custom_li">
-                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="./link to a game_files/b263802e2004e058851acabb4111135e(1)" class="avatar avatar-64 photo" height="64" width="64">
+                                            <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
                                             </figure>
                                             <div class="meta_format">
                                                 <h4 class="comments-custom_h_author">admin</h4>
@@ -586,7 +522,7 @@ Inside The Hell  </h1>
                                             </div>
                                             <div class="clear"></div>
                                             <div class="comments-custom_txt">
-                                                <a href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/lorem-ipsum-dolor-sit-amet-conse-ctetur-adipisicing-elit-sed-do-eiusmod-tempor-incidid/#comment-22" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
+                                                <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -600,11 +536,11 @@ Inside The Hell  </h1>
         <footer class="motopress-wrapper footer">
             <div class="container">
                 <div class="row">
-                    <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-footer.php" data-motopress-wrapper-type="footer" data-motopress-id="555a1a9a63fc4">
+                    <div class="span12" data-motopress-wrapper-file="#" data-motopress-wrapper-type="footer" data-motopress-id="555a1a9a63fc4">
                         <div class="row copyright">
                             <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
                                 <div id="footer-text" class="footer-text">
-                                    <a href="http://livedemo00.template-help.com/wordpress_51908/" title="" class="site-name">Gameportal</a> © 2015. <span><a href="http://livedemo00.template-help.com/wordpress_51908/privacy-policy/" title="Privacy Policy">Privacy Policy</a></span>
+                                    <a href="#" title="" class="site-name">Gameportal</a> © 2015. <span><a href="#" title="Privacy Policy">Privacy Policy</a></span>
                                 </div>
                             </div>
                             <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-nav.php">
@@ -618,61 +554,31 @@ Inside The Hell  </h1>
     </div>
     <div id="back-top-wrapper" class="visible-desktop">
         <p id="back-top" style="display: none;">
-            <a href="http://livedemo00.template-help.com/wordpress_51908/incididunt-ut-labore/dolor-sit-amet-conse-ctetur-adipisicing-elit/#top"><span></span></a> </p>
+            <a href="#top"><span></span></a> </p>
     </div>
-    <script type="text/javascript" src="./link to a game_files/comment-reply.min.js"></script>
-    <script type="text/javascript" src="./link to a game_files/jquery.form.min.js"></script>
-    <script type="text/javascript">
-        /* <![CDATA[ */
-        var _wpcf7 = {
-            "loaderUrl": "http:\/\/livedemo00.template-help.com\/wordpress_51908\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif",
-            "sending": "Sending ..."
-        };
-        /* ]]> */
-    </script>
    
     
     
-    <script type='text/javascript' src='js/comment-reply.min.js'></script>
-    <script type='text/javascript' src='js/jquery.form.min.js'></script>
-    <script type='text/javascript' src='js/scripts.js?ver=3.8'></script>
-    <script type='text/javascript' src='js/superfish.js?ver=1.5.3'></script>
-    <script type='text/javascript' src='js/jquery.mobilemenu.js?ver=1.0'></script>
-    <script type='text/javascript' src='js/jquery.magnific-popup.min.js?ver=0.9.3'></script>
-    <script type='text/javascript' src='js/jquery.flexslider-min.js'></script>
-    <script type='text/javascript' src='js/jplayer.playlist.min.js?ver=2.3.0'></script>
-    <script type='text/javascript' src='js/jquery.jplayer.min.js?ver=2.6.0'></script>
-    <script type='text/javascript' src='js/tmstickup.js?ver=1.0.0'></script>
-    <script type='text/javascript' src='js/device.min.js?ver=1.0.0'></script>
-    <script type='text/javascript' src='js/jquery.zaccordion.min.js?ver=2.1.0'></script>
-    <script type='text/javascript' src='js/camera.min.js?ver=1.3.4'></script>
-    <script type='text/javascript' src='js/jquery.debouncedresize.js?ver=1.0'></script>
-    <script type='text/javascript' src='js/jquery.ba-resize.min.js?ver=1.1'></script>
-    <script type='text/javascript' src='js/jquery.isotope.js?ver=1.5.25'></script>
-    <script type='text/javascript' src='js/cherry-plugin.js'></script>
-    <script type='text/javascript' src='js/mp-row-fullwidth.js'></script>
+    <script type='text/javascript' src='js/generics/comment-reply.min.js'></script>
+    <script type='text/javascript' src='js/generics/jquery.form.min.js'></script>
+    <script type='text/javascript' src='js/generics/scripts.js?ver=3.8'></script>
+    <script type='text/javascript' src='js/generics/superfish.js?ver=1.5.3'></script>
+    <script type='text/javascript' src='js/generics/jquery.mobilemenu.js?ver=1.0'></script>
+    <script type='text/javascript' src='js/generics/jquery.magnific-popup.min.js?ver=0.9.3'></script>
+    <script type='text/javascript' src='js/generics/jquery.flexslider-min.js'></script>
+    <script type='text/javascript' src='js/generics/jplayer.playlist.min.js?ver=2.3.0'></script>
+    <script type='text/javascript' src='js/generics/jquery.jplayer.min.js?ver=2.6.0'></script>
+    <script type='text/javascript' src='js/generics/tmstickup.js?ver=1.0.0'></script>
+    <script type='text/javascript' src='js/generics/device.min.js?ver=1.0.0'></script>
+    <script type='text/javascript' src='js/generics/jquery.zaccordion.min.js?ver=2.1.0'></script>
+    <script type='text/javascript' src='js/generics/camera.min.js?ver=1.3.4'></script>
+    <script type='text/javascript' src='js/generics/jquery.debouncedresize.js?ver=1.0'></script>
+    <script type='text/javascript' src='js/generics/jquery.ba-resize.min.js?ver=1.1'></script>
+    <script type='text/javascript' src='js/generics/jquery.isotope.js?ver=1.5.25'></script>
+    <script type='text/javascript' src='js/generics/cherry-plugin.js'></script>
+    <script type='text/javascript' src='js/generics/mp-row-fullwidth.js'></script>
     
     
-    
-    
-    <script type="text/javascript">
-        if (!NREUMQ.f) {
-            NREUMQ.f = function () {
-                NREUMQ.push(["load", new Date().getTime()]);
-                var e = document.createElement("script");
-                e.type = "text/javascript";
-                e.src = (("http:" === document.location.protocol) ? "http:" : "https:") + "//" + "js-agent.newrelic.com/nr-100.js";
-                document.body.appendChild(e);
-                if (NREUMQ.a) NREUMQ.a();
-            };
-            NREUMQ.a = window.onload;
-            window.onload = NREUMQ.f;
-        };
-        NREUMQ.push(["nrfj", "beacon-1.newrelic.com", "72d7dcce33", "1388850", "ZV1TZ0FTVkFVWkwKXlwXcFBHW1dcG0pRDVZeXQ==", 0, 1846, new Date().getTime(), "", "", "", "", ""]);
-    </script>
-    <iframe name="oauth2relay894751144" id="oauth2relay894751144" src="./link to a game_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe>
-    <script type="text/javascript" src="./link to a game_files/nr-100.js"></script>
-    <script type="text/javascript" src="./link to a game_files/72d7dcce33"></script>
 </body>
 
 </html>

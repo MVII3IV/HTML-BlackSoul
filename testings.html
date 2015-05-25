@@ -1,16 +1,19 @@
 <html ng-app="app">
 
     <head>
-        <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
+        <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
         <script type='text/javascript' src='bower_components/angular/angular.js'></script>
         <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
     </head>
     
-    <body ng-controller="publicationController">
+    <body ng-controller="allNewsController">
         
-        <!--HERE GOES THE PUBLICATION-->
-        <div ng-bind-html="publication.content"></div>
-        hola
+       <div ng-repeat="publication in publications">
+       
+           {{publication.id}}
+           {{publication.author}}
+        
+       </div>
       
     </body>
     

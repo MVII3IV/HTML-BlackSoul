@@ -186,7 +186,7 @@
 
         
         
-        
+        <!--THIS IS THE HEADER SECTION-->
         <header class="motopress-wrapper header">
             <div class="container">
                 <div class="row">
@@ -248,35 +248,44 @@
         
         
         
+        
+        
+        
+        
+        
  
         <div class="motopress-wrapper content-holder clearfix">
             <div class="container">
                 <div class="row">
                     <div class="span12" data-motopress-wrapper-file="single.php" data-motopress-wrapper-type="content">
+                        
+                        
+                        
+                        
+                         <!-- BREADCRUMB SECTION-->
                         <div class="row">
                             <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
-                               
-                                
                                 <section class="title-section">
-                                    <h1 class="title-header">
-Inside The Hell  </h1>
+                                    <h1 class="title-header"> {{publication.title}} </h1>
                                    
-
                                     <ul class="breadcrumb breadcrumb__t">
                                         <li><a href="http://www.theblacksoulcompany.com">Home</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li><a href="#">Games</a>
+                                        <li><a href="">{{publication.type | capitalize}}</a>
                                         </li>
                                         <li class="divider"></li>
-                                        <li class="active">Inside The Hell</li>
+                                        <li class="active">{{publication.title}}</li>
                                     </ul>
                                 </section>
-                                
-                                
-                                
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        
                         <div class="row">
                             <div class="span8 right right" id="content" data-motopress-type="loop">
                                 
