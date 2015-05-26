@@ -25,10 +25,11 @@
                     $author=$row['author'];
                     $type=$row['type'];
                     $date=$row['date'];
+                    $preview_image=$row['preview_image'];
 
 
                     $clientes[] = array('id'=> $id, 'title'=> $title, 'content'=> $content, 'author'=> $author,
-                                        'type'=> $type, 'date'=>$date);
+                                        'type'=> $type, 'date'=>$date, 'preview_image'=>$preview_image);
 
                 }
 

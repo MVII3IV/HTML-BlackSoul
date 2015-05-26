@@ -229,7 +229,7 @@
                                                 <a href="#">Games</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                                        <a href="/linkedgame.html">Inside The Hell</a>
+                                                        <a href="#">Inside The Hell</a>
                                                     </li>
 
 
@@ -376,13 +376,14 @@
                                                             <li class="span4 list-item-1" ng-init="publicationIndex0 = 0">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
-                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex0].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex0].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        <a href="{{publications[publicationIndex0].preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publications[publicationIndex0].preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>  
                                                                         </a>
                                                                     </figure>
                                                                     <div class="time">
                                                                         <span class="post_date">
                                                                             <time datetime="2014-05-27T06:31:56">
                                                                                 <span> 
+                                                                        
                                                                                     {{ formateDate(publications[publicationIndex0].date) | date:'d' }}
                                                                                 </span>
                                                                                 {{ formateDate(publications[publicationIndex0].date) | date:'MMM yyyy' }}
@@ -399,14 +400,14 @@
                                                             
                                                             
                                                             
-                                                            
+                                                
                                                             
                                                             
                                                             
                                                                <li class="span4 list-item-1" ng-init="publicationIndex1 = 1">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
-                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex1].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex1].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        <a href="{{publications[publicationIndex1].preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publications[publicationIndex1].preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
                                                                         </a>
                                                                     </figure>
                                                                     <div class="time">
@@ -422,7 +423,8 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html/?id={{publications[publicationIndex1].id}}">{{publications[publicationIndex1].title}}</a>
+                                                                    
+                                                                    <a href="/game_publication.html?id={{publications[publicationIndex1].id}}">{{publications[publicationIndex1].title}}</a>
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -436,7 +438,7 @@
                                                                <li class="span4 list-item-1" ng-init="publicationIndex2 = 2">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
-                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex2].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex2].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        <a href="{{publications[publicationIndex2].preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publications[publicationIndex2].preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
                                                                         </a>
                                                                     </figure>
                                                                     <div class="time">
@@ -481,10 +483,12 @@
 
 
                                                             
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-id' | limitTo:3">
+                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-id' | limitTo:3" ng-if="publications.length > 3">
+                                                               
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
-                                                                        <a href="images/firstpage/publication_{{publication.id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publication.id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        <a href="{{publication.preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publication.preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." />
+                                                                            <span class="zoom-icon"></span>
                                                                         </a>
                                                                     </figure>
                                                                     <div class="time">
@@ -501,6 +505,7 @@
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
                                                                     <a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
+                                                                  
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -604,7 +609,7 @@
 
 
                         <div class="footer-widgets one">
-                            <div class="row">
+                            <div class="row" ng-controller="allNewsController">
 
 
 
@@ -613,13 +618,13 @@
 
 
 
-                                <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1">
+                                <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1" >
                                     <div id="categories-3">
                                         <h4>Game News</h4>
                                         <ul>
-                                            <li class="cat-item cat-item-3"><a href="http://livedemo00.template-help.com/wordpress_51908/category/conse-ctetur-adipisicing/">Inside The Hell </a>
+                                            <li class="cat-item cat-item-3" ng-repeat="publication in publications" ng-if="publication.type == 'game'">
+                                                <a href="http://livedemo00.template-help.com/wordpress_51908/category/conse-ctetur-adipisicing/">{{publication.title}}</a>
                                             </li>
-
                                         </ul>
                                     </div>
                                 </div>
