@@ -20,7 +20,7 @@ var app = angular.module("app",[]);
 
         var id =  window.location.href.split('?')[1].split('=')[1];
 
-        $http.get(  '/db_access/publications.php?id=' + id  ).success(function(data) {
+        $http.get(  '/API.php/publications/id/' + id  ).success(function(data) {
             $scope.publication = data;
             $scope.publication.content = $sce.trustAsHtml(data.content);
         });
@@ -36,7 +36,7 @@ var app = angular.module("app",[]);
     
     app.controller("allNewsController",function($scope,$http,$filter,$interpolate){
 
-        $http.get('/db_access/all_publications.php').success(function(data) {
+        $http.get('/API.php/publications/all').success(function(data) {
             $scope.publications = data;
         });
         

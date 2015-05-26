@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en-US" ng-app="app">
 
@@ -359,44 +360,103 @@
                                         <div class="mp-span12 motopress-span">
                                             <div class="mp-row-fluid motopress-row">
                                                 <div class="mp-span12 motopress-span">
-                                                    <div ng-controller="allNewsController">
+                                                    <div   ng-controller="allNewsController">
 
 
 
 
                                                         
 
-                                                        <ul class="posts-grid row-fluid unstyled latest-posts-home ul-item-0" >
+                                                        <ul class="posts-grid row-fluid unstyled latest-posts-home ul-item-0">
 
 
 
 
 
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | limitTo:3">
-                                                                
+                                                            <li class="span4 list-item-1" ng-init="publicationIndex0 = 0">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
-                                                                        <a href="images/firstpage/publication_{{publication.id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publication.id}}_0_preview.png" alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex0].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex0].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
                                                                         </a>
                                                                     </figure>
                                                                     <div class="time">
                                                                         <span class="post_date">
                                                                             <time datetime="2014-05-27T06:31:56">
                                                                                 <span> 
-                                                                                    {{ formateDate(publication.date) | date:'d' }}
+                                                                                    {{ formateDate(publications[publicationIndex0].date) | date:'d' }}
                                                                                 </span>
-                                                                                {{ formateDate(publication.date) | date:'MMM yyyy' }}
+                                                                                {{ formateDate(publications[publicationIndex0].date) | date:'MMM yyyy' }}
                                                                             </time>
                                                                         </span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="clear"></div>
-                                                               
-                                                                <h5><a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
-                                                                </h5>
-                                                                
+                                                                <div class="clear"></div>                                                               
+                                                                <h5>
+                                                                    <a href="game_publication.html?id={{publications[publicationIndex0].id}}">{{publications[publicationIndex0].title}}</a>
+                                                                </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                               <li class="span4 list-item-1" ng-init="publicationIndex1 = 1">
+                                                                <div class="thumb">
+                                                                    <figure class="featured-thumbnail thumbnail">
+                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex1].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex1].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        </a>
+                                                                    </figure>
+                                                                    <div class="time">
+                                                                        <span class="post_date">
+                                                                            <time datetime="2014-05-27T06:31:56">
+                                                                                <span> 
+                                                                                    {{ formateDate(publications[publicationIndex1].date) | date:'d' }}
+                                                                                </span>
+                                                                                {{ formateDate(publications[publicationIndex1].date) | date:'MMM yyyy' }}
+                                                                            </time>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clear"></div>                                                               
+                                                                <h5>
+                                                                    <a href="game_publication.html/?id={{publications[publicationIndex1].id}}">{{publications[publicationIndex1].title}}</a>
+                                                                </h5>                                                                
+                                                                <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                                                            </li>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                               <li class="span4 list-item-1" ng-init="publicationIndex2 = 2">
+                                                                <div class="thumb">
+                                                                    <figure class="featured-thumbnail thumbnail">
+                                                                        <a href="images/firstpage/publication_{{publications[publicationIndex2].id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publications[publicationIndex2].id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
+                                                                        </a>
+                                                                    </figure>
+                                                                    <div class="time">
+                                                                        <span class="post_date">
+                                                                            <time datetime="2014-05-27T06:31:56">
+                                                                                <span> 
+                                                                                    {{ formateDate(publications[publicationIndex2].date) | date:'d' }}
+                                                                                </span>
+                                                                                {{ formateDate(publications[publicationIndex2].date) | date:'MMM yyyy' }}
+                                                                            </time>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clear"></div>                                                               
+                                                                <h5>
+                                                                    <a href="game_publication.html?id={{publications[publicationIndex2].id}}">{{publications[publicationIndex2].title}}</a>
+                                                                </h5>                                                                
+                                                                <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                                                            </li>
+                                                            
 
                                                             
                                                             
@@ -408,14 +468,20 @@
                                                         
                                                         
                                                         
-                                                       <ul class="posts-grid row-fluid unstyled latest-posts-home ul-item-0" >
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                       <ul class="posts-grid row-fluid unstyled latest-posts-home ul-item-0">
 
 
+                                                           
+                                                           
 
 
-
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications" ng-if="$index > 2 && $index < 6">
-                                                                
+                                                            
+                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-id' | limitTo:3">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
                                                                         <a href="images/firstpage/publication_{{publication.id}}_0.png" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="images/previews/publication_{{publication.id}}_0_preview.png"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." /><span class="zoom-icon"></span>
@@ -432,16 +498,17 @@
                                                                         </span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="clear"></div>
-                                                               
-                                                                <h5><a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
-                                                                </h5>
-                                                                
+                                                                <div class="clear"></div>                                                               
+                                                                <h5>
+                                                                    <a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
+                                                                </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
 
                                                             
                                                             
+                                                           
+                                                           
                                                             
                                                             
                                                         </ul>
