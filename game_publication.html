@@ -254,7 +254,7 @@
         
         
  
-        <div class="motopress-wrapper content-holder clearfix">
+        <div class="motopress-wrapper content-holder clearfix" ng-controller="allNewsController">
             <div class="container">
                 <div class="row">
                     <div class="span12" data-motopress-wrapper-file="single.php" data-motopress-wrapper-type="content">
@@ -266,7 +266,7 @@
                         <div class="row">
                             <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
                                 <section class="title-section">
-                                    <h1 class="title-header"> {{publication.title}} </h1>
+                                    <h1 class="title-header"> {{publication.title}}</h1>
                                    
                                     <ul class="breadcrumb breadcrumb__t">
                                         <li><a href="http://www.theblacksoulcompany.com">Home</a>
@@ -304,21 +304,32 @@
                          
                                 
                                 
-                                
-                                <div class="post-author clearfix">
+                                <!--AUTHOR INFO-->
+                                <div class="post-author clearfix" ng-init="getAuthorById()">
                                     <h3 class="post-author_h">
-                                       {{publication.author}}
+                                       {{author.name}}
                                    </h3>
-                                    <p class="post-author_gravatar"><img alt="" src="" class="avatar avatar-80 photo" height="80" width="80">
+                                    <p class="post-author_gravatar"><img alt="" ng-src="{{author.display_picture}}" class="avatar avatar-80 photo" height="80" width="80">
                                     </p>
                                     <div class="post-author_desc">
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean non ummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis sere natoque penati bus et magnis dis. Lorem ipsum dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit lorem. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris.
+                                        {{author.description}}
                                         <div class="post-author_link">
-                                            <p>View all posts by: <a href="" title="Posts by admin" rel="author">{{publication.author}}</a>
+                                            <p>View all posts by: <a href="" rel="author">{{author.name}}</a>
                                             </p>
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                   <!--
+                                
                                 
                                 <div class="related-posts">
                                     <h3 class="related-posts_h">Related Posts</h3>
@@ -350,7 +361,34 @@
                                     </ul>
                                 </div>
                                 
-                                <div id="comments" class="comment-holder">
+                                -->
+                                
+                                
+              
+                                
+                                
+                                <div id="disqus_thread"></div>
+                                <script type="text/javascript">
+                                    /* * * CONFIGURATION VARIABLES * * */
+                                    var disqus_shortname = 'theblacksoulcompany';
+
+                                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                                    (function() {
+                                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                                    })();
+                                    
+                                    
+                           
+                                        $('div #footer').attr('disabled', true);
+                        
+                 
+                                </script>
+                                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                                
+                        
+                                <div id="comments" class="comment-holder" ng-show="false">
                                     <h3 class="comments-h">3 Responses</h3>
                                     <div class="pagination">
                                     </div>
@@ -411,8 +449,12 @@
                                     <div class="pagination">
                                     </div>
                                 </div>
-                                <div id="respond">
-                                    <h3>Leave a comment</h3>
+                                
+                                
+                                
+                                
+                                <div id="respond" ng-show="false">
+                                    <h3>Leave us a comment</h3>
                                     <div class="cancel-comment-reply">
                                         <small><a rel="nofollow" id="cancel-comment-reply-link" href="" style="display:none;">Click here to cancel reply.</a></small>
                                     </div>
@@ -430,15 +472,27 @@
                                         <p>
                                             <textarea name="comment" id="comment" cols="58" rows="10" tabindex="4" onfocus="if(this.value==&#39;Your comment*&#39;){this.value=&#39;&#39;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;Your comment*&#39;}">Your comment*</textarea>
                                         </p>
-                                        <p><span class="input-btn btn btn-from-left"><span><input name="submit" type="submit" class="" id="submit" tabindex="5" value="Submit Comment"></span></span>
-                                            <input type="hidden" name="comment_post_ID" value="71" id="comment_post_ID">
+                                        <p>
+                                            
+                                                <span>
+                                                    <input name="submit" type="submit" class="" id="submit" tabindex="5" value="Submit Comment">
+                                                </span>
+                                     
+                                     
                                             <input type="hidden" name="comment_parent" id="comment_parent" value="0">
                                         </p>
                                     </form>
                                 </div>
 
+                                
                             </div>
-                            <div class="span4 sidebar" id="sidebar" data-motopress-type="static-sidebar" data-motopress-sidebar-file="sidebar.php">
+
+
+
+                            <div class="span4 sidebar" id="sidebar" data-motopress-type="static-sidebar">
+                               
+                                
+                                <!--
                                 <div id="categories-2" class="widget">
                                     <h3>Categories</h3>
                                     <ul>
@@ -454,29 +508,44 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div id="my_poststypewidget-2" class="widget">
+                                -->
+                                
+                                
+                                
+                                
+                                
+                                
+                                <!--RECENT NEWS PART-->
+                                <div id="my_poststypewidget-2" class="widget" >
                                     <h3>Recent Posts</h3>
                                     <ul class="post-list unstyled">
-                                        <li class="cat_post_item-1 clearfix">
+    
+                                        
+                                        
+                                        <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications | limitTo:10" ng-if="publication.publication_id != getCurrentPageId()">
                                             <figure class="featured-thumbnail thumbnail">
-                                                <img src="#" width="100" height="120" alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">
+                                                <img ng-src="{{publication.preview_image}}" width="100" height="120">
                                             </figure>
-                                            <time datetime="2014-05-27T06:31">May 27, 2014 6:31 am</time>
-                                            <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.</a></h4>
+                                            <time datetime="2014-05-27T06:31">{{publication.date}}</time>
+                                                <h4 class="post-list_h">
+                                                    <a class="post-title" href="#" rel="bookmark">{{publication.title}}</a>
+                                                </h4>
                                             <div class="excerpt">
-                                                Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar... </div>
+                                   
+                                            </div>
                                         </li>
-                                        <li class="cat_post_item-2 clearfix">
-                                            <figure class="featured-thumbnail thumbnail">
-                                                <img src="" width="100" height="120" alt="Dolor sit amet conse ctetur adipisicing elit.">
-                                            </figure>
-                                            <time datetime="2013-03-14T20:28">March 14, 2013 8:28 pm</time>
-                                            <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Dolor sit amet conse ctetur adipisicing elit.">Dolor sit amet conse ctetur adipisicing elit.</a></h4>
-                                            <div class="excerpt">
-                                                Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar... </div>
-                                        </li>
+    
+                                        
+                                        
                                     </ul>
                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                <!--
+                                
                                 <div id="my-recent-comments-5" class="visible-all-devices widget">
                                     <h3>Recent Comments</h3>
                                     <ul class="comments-custom unstyled">
@@ -524,12 +593,25 @@
                                         </li>
                                     </ul>
                                 </div>
+                                -->
+                                
+                                
+                                
+                                
+                                
+                                
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        
+        
+        
+        
         <footer class="motopress-wrapper footer">
             <div class="container">
                 <div class="row">
@@ -537,10 +619,8 @@
                         <div class="row copyright">
                             <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
                                 <div id="footer-text" class="footer-text">
-                                    <a href="#" title="" class="site-name">Gameportal</a> © 2015. <span><a href="#" title="Privacy Policy">Privacy Policy</a></span>
+                                    <a href="#" title="" class="site-name">BlackSoul</a> © 2015. <span><a href="#" title="Privacy Policy">Privacy Policy</a></span>
                                 </div>
-                            </div>
-                            <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-nav.php">
                             </div>
                         </div>
                     </div>

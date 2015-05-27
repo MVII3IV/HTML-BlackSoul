@@ -6,11 +6,20 @@
     $app = new \Slim\Slim();
 
 
+    //'67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'
+    // 'localhost:3306', 'root', '', 'blacksoul' 
+    function connectToDataBase()
+    {
+        return mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'); 
+    }
+
+
+
     //END POINTS
         //GET ALL THE PUBLICATIONS
         $app->get('/publications/all', function () {     
 
-            $db  = mysqli_connect( '67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
+            $db  = connectToDataBase();
             $sql = 'SELECT * FROM publications'; 
             $result = mysqli_query($db,$sql); 
 
@@ -19,17 +28,25 @@
 
                 while($row = mysqli_fetch_array($result)) 
                 { 
-                    $id=$row['id'];
+                    $publication_id=$row['publication_id'];
                     $title=$row['title'];
                     $content=$row['content'];
-                    $author=$row['author'];
+                    $author_id=$row['author_id'];
                     $type=$row['type'];
                     $date=$row['date'];
                     $preview_image=$row['preview_image'];
+                    $review=$row['review'];
 
 
-                    $clientes[] = array('id'=> $id, 'title'=> $title, 'content'=> $content, 'author'=> $author,
-                                        'type'=> $type, 'date'=>$date, 'preview_image'=>$preview_image);
+                    $clientes[] = array('publication_id'=> $publication_id, 
+                                        'title'=> $title, 
+                                        'content'=> $content, 
+                                        'author_id'=> $author_id,
+                                        'type'=> $type, 
+                                        'date'=>$date, 
+                                        'preview_image'=>$preview_image,
+                                        'review'=>$review
+                                       );
 
                 }
 
@@ -48,8 +65,25 @@
         //GET A PUBLICATION BY ID
         $app->get('/publications/id/:id', function($id) {
 
-                $db  = mysqli_connect( '67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
-                $sql = 'SELECT * FROM publications where id = ' . $id; 
+                $db  = connectToDataBase();
+                $sql = 'SELECT * FROM publications where publication_id = ' . $id; 
+                $result = mysqli_query($db,$sql); 
+
+                    foreach($result as $row){
+                        echo json_encode($row);
+                        //echo $row[ 'content']; 
+                    } 
+
+                mysqli_close($db); 
+        });
+
+
+        //GET A AUTHOR BY ID
+        $app->get('/author/bypublicationid/:id', function($id) {
+
+                $db  = connectToDataBase();
+                $sql = 'select * from authors where author_id = (
+select author_id from publications where publication_id = ' . $id .' )'; 
                 $result = mysqli_query($db,$sql); 
 
                     foreach($result as $row){
@@ -60,6 +94,7 @@
                 mysqli_close($db); 
         });
     
+
 
     $app->run();
 ?>

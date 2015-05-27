@@ -24,8 +24,17 @@ var app = angular.module("app",[]);
             $scope.publication = data;
             $scope.publication.content = $sce.trustAsHtml(data.content);
         });
+        
+        
+         $scope.getAuthorById = function(){
+              $http.get(  '/API.php/author/bypublicationid/' + id  ).success(function(data) {        
+                  $scope.author = data;
+              });     
+         }
 
+         
     })
+    
     .directive('headerDirective', function() {
       return {
         restrict: 'E',
@@ -34,8 +43,10 @@ var app = angular.module("app",[]);
     });
     
     
+
     app.controller("allNewsController",function($scope,$http,$filter,$interpolate){
 
+        $scope.myvar = "asdsad";
         $http.get('/API.php/publications/all').success(function(data) {
             $scope.publications = data;
         });
@@ -45,8 +56,10 @@ var app = angular.module("app",[]);
           return Date.parse(date);
       };
         
-        
-    
+      $scope.getCurrentPageId = function()
+      {
+          return  window.location.href.split('?')[1].split('=')[1];
+      }
         
         
     });

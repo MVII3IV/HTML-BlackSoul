@@ -393,7 +393,7 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html?id={{publications[publicationIndex0].id}}">{{publications[publicationIndex0].title}}</a>
+                                                                    <a href="game_publication.html?id={{publications[publicationIndex0].publication_id}}">{{publications[publicationIndex0].title}}</a>
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -483,7 +483,7 @@
 
 
                                                             
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-id' | limitTo:3" ng-if="publications.length > 3">
+                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-publication_id' | limitTo:3" ng-if="publications.length > 3">
                                                                
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
@@ -504,7 +504,7 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
+                                                                    <a href="game_publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
                                                                   
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="htqtps://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
@@ -623,7 +623,7 @@
                                         <h4>Game News</h4>
                                         <ul>
                                             <li class="cat-item cat-item-3" ng-repeat="publication in publications" ng-if="publication.type == 'games'">
-                                                <a href="game_publication.html?id={{publication.id}}">{{publication.title}}</a>
+                                                <a href="game_publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -641,9 +641,10 @@
                                 <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-2">
                                     <div id="my_poststypewidget-3" class="visible-all-devices footer-recent-posts  ">
                                         <h4>Recent Posts</h4>
+                                        
                                         <ul class='post-list unstyled'>
-                                            <li class="cat_post_item-1 clearfix">
-                                                <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.">Inside The Hell is comming soon</a></h4>
+                                            <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications | limitTo:6 |orderBy:'-id'">
+                                                <h4 class="post-list_h"><a class="post-title" href="game_publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
                                                 <div class="excerpt">
                                                 </div>
                                             </li>
@@ -661,12 +662,12 @@
 
 
 
-                                <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-3">
+                                <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-6">
                                     <div id="my_poststypewidget-4" class="visible-all-devices footer-best-reviews  ">
                                         <h4>Best Reviews</h4>
                                         <ul class='post-list unstyled'>
-                                            <li class="cat_post_item-1 clearfix">
-                                                <h4 class="post-list_h"><a class="post-title" href="#" rel="bookmark" title="Elit sed do eiusmod tempor">Elit sed do eiusmod tempor</a></h4>
+                                            <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications" ng-if="publication.review > 4">
+                                                <h4 class="post-list_h"><a class="post-title" href="game_publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
                                                 <div class="excerpt">
                                                 </div>
                                             </li>
@@ -688,17 +689,17 @@
                                     <div id="archives-2" class="visible-all-devices ">
                                         <h4>Archive</h4>
                                         <ul>
-                                            <li><a href='#'>May 2014</a>
+                                            <li><a href=''>May 2014</a>
                                             </li>
-                                            <li><a href='#'>March 2013</a>
+                                            <li><a href=''>March 2013</a>
                                             </li>
-                                            <li><a href='#'>February 2013</a>
+                                            <li><a href=''>February 2013</a>
                                             </li>
-                                            <li><a href='#'>January 2013</a>
+                                            <li><a href=''>January 2013</a>
                                             </li>
-                                            <li><a href='#'>December 2012</a>
+                                            <li><a href=''>December 2012</a>
                                             </li>
-                                            <li><a href='#'>May 2012</a>
+                                            <li><a href=''>May 2012</a>
                                             </li>
                                         </ul>
                                     </div>
