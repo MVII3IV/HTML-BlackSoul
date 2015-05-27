@@ -10,7 +10,7 @@
         //GET ALL THE PUBLICATIONS
         $app->get('/publications/all', function () {     
 
-            $db  = mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'); 
+            $db  = mysqli_connect( '67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
             $sql = 'SELECT * FROM publications'; 
             $result = mysqli_query($db,$sql); 
 
@@ -48,7 +48,7 @@
         //GET A PUBLICATION BY ID
         $app->get('/publications/id/:id', function($id) {
 
-                $db  = mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'); 
+                $db  = mysqli_connect( '67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
                 $sql = 'SELECT * FROM publications where id = ' . $id; 
                 $result = mysqli_query($db,$sql); 
 
