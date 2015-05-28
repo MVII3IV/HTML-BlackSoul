@@ -19,7 +19,7 @@ var app = angular.module("app",[]);
     app.controller("publicationController",function($scope,$http,$sce){
 
         var id =  window.location.href.split('?')[1].split('=')[1];
-
+        alert(id);
         $http.get(  '/API.php/publications/id/' + id  ).success(function(data) {
             $scope.publication = data;
             $scope.publication.content = $sce.trustAsHtml(data.content);
