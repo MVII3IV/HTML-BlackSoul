@@ -1,0 +1,18 @@
+Datos de Nueva Cuenta (Acceso FTP y Panel de Control):
+ 
+Dominio: theblacksoulcompany.com
+Usuario de FTP y Panel de Control: theblack 
+Password del FTP y Panel de Control: FTo072z4bd ¿Olvidaste o Deseas Cambiar el Password?
+Paquete de Hosting: Inicial Libre
+IP del Servidor: 67.225.221.232
+Nameserver 1 (DNS Primario): ns1.hddpool3.net
+Nameserver 2 (DNS Secundario): ns2.hddpool3.net
+**Temporalmente puedes usar alguna de las direcciones listadas a continuación, en tanto tu dominio se propaga en la red y puedes acceder normalmente a él**
+Servidor FTP Temporal: 67.225.221.232
+URL Temporal de tu Sitio: http://67.225.221.232/~theblack/
+Dirección de Panel de Control Temporal: http://67.225.221.232:2082
+
+**Una vez que tu dominio se haya propagado puedes acceder con estos datos**
+Servidor FTP: www.theblacksoulcompany.com
+URL de tu Sitio: http://www.theblacksoulcompany.com
+Panel de Control (cPanel): http://www.theblacksoulcompany.com:2082
