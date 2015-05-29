@@ -19,7 +19,7 @@ var app = angular.module("app",[]);
     app.controller("publicationController",function($scope,$http,$sce){
 
         var id =  window.location.href.split('?')[1].split('=')[1];
-        alert(id);
+
         $http.get(  '/API.php/publications/id/' + id  ).success(function(data) {
             $scope.publication = data;
             $scope.publication.content = $sce.trustAsHtml(data.content);
@@ -44,9 +44,39 @@ var app = angular.module("app",[]);
     
     
 
+
+    
+    //PUBLICATION CONTROLLER
+    app.controller("publicationWriterController",function($scope,$http,$sce){
+      
+        $scope.getSafe = function(){
+            return $sce.trustAsHtml($scope.content);
+        };
+        /*
+        $scope.setAuthor = function(author){
+            
+            getAuthorByName(author);
+            
+            $scope.author = $scope.authorData.name;
+            $scope.description = $scope.authorData.description;
+        };
+        */
+        
+        $scope.getAuthorByName = function(authorName){
+       
+              $http.get(  '/API.php//author/name/' + authorName  ).success(function(data) {        
+                  $scope.authorData = data;
+              });
+        };
+
+    });
+
+
+
+
+
     app.controller("allNewsController",function($scope,$http,$filter,$interpolate){
 
-        $scope.myvar = "asdsad";
         $http.get('/API.php/publications/all').success(function(data) {
             $scope.publications = data;
         });

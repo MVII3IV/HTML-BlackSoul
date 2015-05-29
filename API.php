@@ -141,5 +141,39 @@
     
 
 
+        //GET A AUTHOR BY ID
+        $app->get('/author/name/:authorsName', function($authorsName) {
+
+                $db  = connectToDataBase();
+                $sql = 'select * from authors where name = \'' . $authorsName .'\';'; 
+
+                $result = mysqli_query($db,$sql); 
+           
+                $clientes = array(); //creamos un array
+
+                while($row = mysqli_fetch_array($result)) 
+                { 
+                    $author_id=$row['author_id'];
+                    $name=$row['name'];
+                    $description=$row['description'];
+                    $display_picture=$row['display_picture'];
+
+                    $clientes[] = array('author_id'=> $author_id, 
+                                        'name'=> $name, 
+                                        'description'=> $description, 
+                                        'display_picture'=> $display_picture
+                                       );
+
+                }
+    
+
+                mysqli_close($db); 
+            
+             $json_string = json_encode($clientes[0]);
+             echo $json_string;  
+        });
+    
+
+
     $app->run();
 ?>
