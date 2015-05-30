@@ -331,19 +331,23 @@
                                 <div id="respond">
                                     <h3>HTML Editor</h3>
                                     
-                                    <form action="#" method="post" id="commentform">
+                                    <form action="/API.php/addpublication" method="post" id="commentform">
                                         
                                         <p class="field">
                                             <input ng-model="title" type="text" name="title" id="title" placeholder="Write the publication's title"  size="22" tabindex="1" aria-required="true">
                                         </p>
                                         
-                                         <select ng-model="type">
+                                         <p class="field">
+                                            <input type="text" name="image" id="image" placeholder="Preview image path, images/first/portada.png"  size="22" tabindex="1" aria-required="true">
+                                        </p>
+                                        
+                                         <select ng-model="type" name="type">
                                             <option value="" disabled selected>Publication Type</option>
                                             <option>news</option>
                                             <option>games</option>
                                         </select><br/>
                                         
-                                        <select ng-model="author" ng-change="getAuthorByName(author)">
+                                        <select ng-model="author" name="author" ng-change="getAuthorByName(author)">
                                             <option value="" disabled selected>Who the hell are you???</option>
                                             <option>Erick Dominguez</option>
                                             <option>Raul Roman</option>
@@ -353,7 +357,7 @@
                                                   
                                        
                                         <p>
-                                            <textarea ng-model="content" name="publicationEditor" id="publicationEditor" cols="58" rows="10" placeholder="Write a publication using HTML code"></textarea>
+                                            <textarea ng-model="content" name="content" id="publicationEditor" cols="58" rows="10" placeholder="Write a publication using HTML code"></textarea>
                                         </p>
                                         <p>
                                             <span>

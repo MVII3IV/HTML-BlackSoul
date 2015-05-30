@@ -10,7 +10,7 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
-        return mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul' ); 
+        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
     }
 
 
@@ -24,41 +24,46 @@
             $result = mysqli_query($db,$sql); 
 
 
-            $clientes = array(); //creamos un array
-
+            $rows = array(); 
+            
                 while($row = mysqli_fetch_array($result)) 
                 { 
-                    $publication_id=$row['publication_id'];
-                    $title=$row['title'];
-                    $content=$row['content'];
-                    $author_id=$row['author_id'];
-                    $type=$row['type'];
-                    $date=$row['date'];
-                    $preview_image=$row['preview_image'];
-                    $review=$row['review'];
-
-
-                    $clientes[] = array('publication_id'=> $publication_id, 
-                                        'title'=> $title, 
-                                        'content'=> $content, 
-                                        'author_id'=> $author_id,
-                                        'type'=> $type, 
-                                        'date'=>$date, 
-                                        'preview_image'=>$preview_image,
-                                        'review'=>$review
-                                       );
-
+                    $rows[] = $row;
                 }
 
             mysqli_close($db); 
 
             //Creamos el JSON
-            $json_string = json_encode($clientes);
+            $json_string = json_encode($rows);
             echo $json_string;      
         });
 
 
+        $app->post('/addpublication', function () {     
 
+            $db  = connectToDataBase();
+            $sql = 'SELECT author_id FROM authors WHERE name = \''. $_POST['author'] .'\' ';
+
+            $result = mysqli_query($db,$sql); 
+            $row = mysqli_fetch_array($result);
+
+            $authorID = $row['author_id'];
+
+            
+
+            $sql = 'INSERT INTO publications (title, content, author_id, date, preview_image, type) VALUES (\'' 
+                . $_POST['title'] .  '\',\'' 
+                . $_POST['content'] .  '\',\'' 
+                . $authorID .  '\',\'' 
+                . date("Y-m-d") .  '\',\'' 
+                . $_POST['image'] .  '\',\'' 
+                . $_POST['type'] . '\')';
+    
+            $result = mysqli_query($db,$sql); 
+            
+            mysqli_close($db); 
+        });
+      
 
 
 
@@ -71,30 +76,11 @@
     
     
                 
-            $clientes = array(); //creamos un array
+            $rows = array();
 
                 while($row = mysqli_fetch_array($result)) 
                 { 
-                    $publication_id=$row['publication_id'];
-                    $title=$row['title'];
-                    $content=$row['content'];
-                    $author_id=$row['author_id'];
-                    $type=$row['type'];
-                    $date=$row['date'];
-                    $preview_image=$row['preview_image'];
-                    $review=$row['review'];
-
-
-                    $clientes[] = array('publication_id'=> $publication_id, 
-                                        'title'=> $title, 
-                                        'content'=> $content, 
-                                        'author_id'=> $author_id,
-                                        'type'=> $type, 
-                                        'date'=>$date, 
-                                        'preview_image'=>$preview_image,
-                                        'review'=>$review
-                                       );
-
+                    $rows[] = $row;
                 }
     
     
@@ -102,7 +88,7 @@
                 mysqli_close($db); 
     
 
-            $json_string = json_encode($clientes[0]);
+            $json_string = json_encode($rows[0]);
             echo $json_string;      
         });
 
@@ -115,27 +101,17 @@
                 $sql = 'select * from authors where author_id = (select author_id from publications where publication_id = ' . $id .' )'; 
                 $result = mysqli_query($db,$sql); 
            
-                $clientes = array(); //creamos un array
+                $rows = array();
 
                 while($row = mysqli_fetch_array($result)) 
                 { 
-                    $author_id=$row['author_id'];
-                    $name=$row['name'];
-                    $description=$row['description'];
-                    $display_picture=$row['display_picture'];
-
-                    $clientes[] = array('author_id'=> $author_id, 
-                                        'name'=> $name, 
-                                        'description'=> $description, 
-                                        'display_picture'=> $display_picture
-                                       );
-
+                    $rows[] = $row;
                 }
     
 
                 mysqli_close($db); 
             
-             $json_string = json_encode($clientes[0]);
+             $json_string = json_encode($rows[0]);
              echo $json_string;  
         });
     
@@ -149,29 +125,23 @@
 
                 $result = mysqli_query($db,$sql); 
            
-                $clientes = array(); //creamos un array
+                $rows = array(); //creamos un array
 
                 while($row = mysqli_fetch_array($result)) 
                 { 
-                    $author_id=$row['author_id'];
-                    $name=$row['name'];
-                    $description=$row['description'];
-                    $display_picture=$row['display_picture'];
-
-                    $clientes[] = array('author_id'=> $author_id, 
-                                        'name'=> $name, 
-                                        'description'=> $description, 
-                                        'display_picture'=> $display_picture
-                                       );
-
+                    $rows[] = $row;
                 }
     
 
                 mysqli_close($db); 
             
-             $json_string = json_encode($clientes[0]);
+             $json_string = json_encode($rows[0]);
              echo $json_string;  
         });
+    
+
+
+      
     
 
 
