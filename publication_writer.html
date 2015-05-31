@@ -331,14 +331,15 @@
                                 <div id="respond">
                                     <h3>HTML Editor</h3>
                                     
-                                    <form action="/API.php/addpublication" method="post" id="commentform">
+                                    <form enctype="multipart/form-data" action="/API.php/addpublication" method="post" id="commentform">
                                         
                                         <p class="field">
                                             <input ng-model="title" type="text" name="title" id="title" placeholder="Write the publication's title"  size="22" tabindex="1" aria-required="true">
                                         </p>
                                         
                                          <p class="field">
-                                            <input type="text" name="image" id="image" placeholder="Preview image path, images/first/portada.png"  size="22" tabindex="1" aria-required="true">
+                                            <input type="file" name="image" id="fileToUpload">
+                                            <!--input type="text" name="image" id="image" placeholder="Preview image path, images/first/portada.png"  size="22" tabindex="1" aria-required="true"--> 
                                         </p>
                                         
                                          <select ng-model="type" name="type">

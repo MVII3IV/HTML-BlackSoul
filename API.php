@@ -10,7 +10,7 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
-        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'); 
+        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul' ); 
     }
 
 
@@ -41,6 +41,20 @@
 
         $app->post('/addpublication', function () {     
 
+            
+            $uploaddir = 'images/publications/';
+            $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+
+            echo '<pre>';
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
+                echo "El archivo es válido y fue cargado exitosamente.\n";
+            } else {
+                echo "¡Posible ataque de carga de archivos!\n";
+            }
+
+                
+            
+
             $db  = connectToDataBase();
             $sql = 'SELECT author_id FROM authors WHERE name = \''. $_POST['author'] .'\' ';
 
@@ -49,14 +63,14 @@
 
             $authorID = $row['author_id'];
 
-            
+            echo $uploadfile;
 
             $sql = 'INSERT INTO publications (title, content, author_id, date, preview_image, type) VALUES (\'' 
                 . $_POST['title'] .  '\',\'' 
                 . $_POST['content'] .  '\',\'' 
                 . $authorID .  '\',\'' 
                 . date("Y-m-d") .  '\',\'' 
-                . $_POST['image'] .  '\',\'' 
+                . $uploadfile .  '\',\'' 
                 . $_POST['type'] . '\')';
     
             $result = mysqli_query($db,$sql); 
@@ -65,31 +79,29 @@
         });
       
 
-
-
-       $app->get('/publications/id/:id', function($id) {
+        $app->get('/publications/id/:id', function($id) {
 
                 $db  = connectToDataBase();
                 $sql = 'SELECT * FROM publications WHERE publication_id = ' . $id; 
                 $result = mysqli_query($db,$sql); 
-                    
-    
-    
-                
+
+
+
+
             $rows = array();
 
                 while($row = mysqli_fetch_array($result)) 
                 { 
                     $rows[] = $row;
                 }
-    
-    
+
+
 
                 mysqli_close($db); 
-    
 
-            $json_string = json_encode($rows[0]);
-            echo $json_string;      
+
+             $json_string = json_encode($rows[0]);
+             echo $json_string;      
         });
 
 
