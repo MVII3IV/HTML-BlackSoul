@@ -32,6 +32,7 @@
 
     <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
+    <script type='text/javascript' src='node_modules/angular-resource/angular-resource.js'></script>
     <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
     <script type='text/javascript' src='js/generics/btn.js'></script>
     <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
@@ -284,21 +285,18 @@
                 </script>
                 <div id="parallax-slider-552408181f075" class="parallax-slider">
                     <ul class="baseList">
+                        
                         <li data-preview="images/firstpage/portada.png" data-img-width="1459" data-img-height="715" data-ulr-link="#">
-                            <!--
-                            <div class="slider_caption>">
-                                <h2>BlackSoul</h2>
-                                <p>Think different, make it real </p>
-                            </div>
-                            -->
                         </li>
-                        <li data-preview="images/firstpage/sh_dp_05.jpg" data-img-width="1920" data-img-height="1051" data-ulr-link="portfolio/">
+                        
+                        <li data-preview="images/firstpage/sh_dp_05.jpg" data-img-width="1920" data-img-height="1051" data-ulr-link="#">
                             <div class="slider_caption>">
-                                <h2>BlackSoul Introduce Inside The Hell ®</h2>
-                                <p>This is our new game, do you ever felt locked in somewhere and feel you can not escape it ? You are ready to die and pay for your sins? Do not think that is one game over fear, it is a game which will make you doubt that these so sane , so try to play or run at your own risk.</p>
+                                <h2>Inside The Hell</h2>
+                                <h4>have you ever felt locked in somewhere and felt that you can not escape? are you ready to pay for your sins? try to play at your own risk.</h4>
                             </div>
                         </li>
-
+                        
+                    </ul>
                 </div>
 
 
@@ -318,7 +316,7 @@
                                             <div class="span12" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-5">
                                                 <div id="text-6">
                                                     <div class="textwidget">
-                                                        <a href="https://www.kickstarter.com/"><img src="images/generics/kickstarter-logo2.png" width="500">
+                                                        <a href="https://www.kickstarter.com/"><img src="images/generics/kickstarter-logo.png" width="500">
                                                         </a>
 
                                                         <p>We really apreciate your collaboration, any help makes the diference.</p>
@@ -393,7 +391,7 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html?id={{publications[publicationIndex0].publication_id}}">{{publications[publicationIndex0].title}}</a>
+                                                                    <a href="publication.html?id={{publications[publicationIndex0].publication_id}}">{{publications[publicationIndex0].title}}</a>
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -424,7 +422,7 @@
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
                                                                     
-                                                                    <a href="/game_publication.html?id={{publications[publicationIndex1].publication_id}}">{{publications[publicationIndex1].title}}</a>
+                                                                    <a href="/publication.html?id={{publications[publicationIndex1].publication_id}}">{{publications[publicationIndex1].title}}</a>
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -454,7 +452,7 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html?id={{publications[publicationIndex2].publication_id}}">{{publications[publicationIndex2].title}}</a>
+                                                                    <a href="publication.html?id={{publications[publicationIndex2].publication_id}}">{{publications[publicationIndex2].title}}</a>
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="https://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
                                                             </li>
@@ -483,8 +481,7 @@
 
 
                                                             
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-date' | limitTo:3" ng-if="publications.length > 3">
-                                                               
+                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-date' | limitTo:3" ng-if="publications.length > 3  && publication.publication_id != 1 && publication.publication_id != 2 && publication.publication_id != 3">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
                                                                         <a href="{{publication.preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publication.preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." />
@@ -504,7 +501,7 @@
                                                                 </div>
                                                                 <div class="clear"></div>                                                               
                                                                 <h5>
-                                                                    <a href="game_publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
+                                                                    <a href="publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
                                                                   
                                                                 </h5>                                                                
                                                                 <div class="fb-like" data-href="htqtps://www.theblacksoulcompany.com" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
@@ -530,7 +527,9 @@
 
                                             <div class="mp-row-fluid motopress-row">
                                                 <div class="mp-span12 motopress-span">
-                                                    <div class="align-center"><a href="#" title="See All" class="btn btn-default btn-normal btn-inline " target="_self">See All</a> </div>
+                                                    <div class="align-center">
+                                                        <a href="#" title="See All" class="btn btn-default btn-normal btn-inline " target="_self">See All</a> 
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -623,7 +622,7 @@
                                         <h4>Game News</h4>
                                         <ul>
                                             <li class="cat-item cat-item-3" ng-repeat="publication in publications" ng-if="publication.type == 'games'">
-                                                <a href="game_publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
+                                                <a href="publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -644,7 +643,7 @@
                                         
                                         <ul class='post-list unstyled'>
                                             <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications | limitTo:6 |orderBy:'-id'">
-                                                <h4 class="post-list_h"><a class="post-title" href="game_publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
+                                                <h4 class="post-list_h"><a class="post-title" href="publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
                                                 <div class="excerpt">
                                                 </div>
                                             </li>
@@ -667,7 +666,7 @@
                                         <h4>Best Reviews</h4>
                                         <ul class='post-list unstyled'>
                                             <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications" ng-if="publication.review > 4">
-                                                <h4 class="post-list_h"><a class="post-title" href="game_publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
+                                                <h4 class="post-list_h"><a class="post-title" href="publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
                                                 <div class="excerpt">
                                                 </div>
                                             </li>
@@ -765,11 +764,14 @@
 
     </div>
 
+    
 
-    <div id="back-top-wrapper" class="visible-desktop">
-        <p id="back-top">
-            <a href="#top"><span></span></a> </p>
-    </div>
+    
+    
+    
+
+ 
+
 
     <script type='text/javascript' src='js/generics/comment-reply.min.js'></script>
     <script type='text/javascript' src='js/generics/jquery.form.min.js'></script>
@@ -790,7 +792,6 @@
     <script type='text/javascript' src='js/generics/cherry-plugin.js'></script>
     <script type='text/javascript' src='js/generics/mp-row-fullwidth.js'></script>
 
-    </div>
 </body>
 
 </html>

@@ -35,6 +35,7 @@
 
     <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
+    <script type='text/javascript' src='node_modules/angular-resource/angular-resource.js'></script>
     <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
     <script type='text/javascript' src='js/generics/btn.js'></script>
     <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
@@ -220,7 +221,8 @@
                                 <div class="span5" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
 
                                     <div class="logo pull-left">
-                                        <a href="http://www.theblacksoulcompany.com" class="logo_h logo_h__img"><img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
+                                        <a href="http://www.theblacksoulcompany.com" class="logo_h logo_h__img">
+                                            <img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
                                         </a>
                                     </div>
                                 </div>
@@ -304,7 +306,7 @@
 
 
                                 <!--AUTHOR INFO-->
-                                <div class="post-author clearfix" ng-show="author">
+                                <div class="post-author clearfix" ng-show="authorData.name">
                                     <h3 class="post-author_h">
                                           {{authorData.name}}
                                        </h3>
@@ -331,15 +333,30 @@
                                 <div id="respond">
                                     <h3>HTML Editor</h3>
                                     
-                                    <form enctype="multipart/form-data" action="/API.php/addpublication" method="post" id="commentform">
+                                    <form enctype="multipart/form-data" action="{{action}}" method="post" id="commentform">
+                                        
+                                        <input ng-model="publication_id" type="text" name="publication_id" id="publication_id" ng-show="false">
+                                        
+                                        
+                                        <select ng-model="action" name="action">
+                                            <option value="" disabled selected>Select what you wanna do</option>
+                                            <option value="/API.php/addpublication">New publication</option>
+                                            <option value="/API.php/editpublication">Edit publication</option>
+                                            <option value="/API.php/delpublication">Delete publication</option>
+                                        </select><br/>
+       
+                                        <select ng-model="selectedCategory" ng-options="p as p.title for p in publications"  ng-change="editPublicationHasChange(selectedCategory)">
+                                        <option disabled selected >Select a publication to edit</option>
+                                        </select>
+                                    
                                         
                                         <p class="field">
-                                            <input ng-model="title" type="text" name="title" id="title" placeholder="Write the publication's title"  size="22" tabindex="1" aria-required="true">
+                                            <input ng-model="title" type="text" name="title" id="title" placeholder="Write the publication's title" size="22" tabindex="1" aria-required="true">
                                         </p>
                                         
+                                        <img ng-src="{{image}}" width="250" ng-show="image">
                                          <p class="field">
-                                            <input type="file" name="image" id="fileToUpload">
-                                            <!--input type="text" name="image" id="image" placeholder="Preview image path, images/first/portada.png"  size="22" tabindex="1" aria-required="true"--> 
+                                            <input type="file" ng-model="image" name="image" id="fileToUpload" >
                                         </p>
                                         
                                          <select ng-model="type" name="type">
@@ -348,7 +365,7 @@
                                             <option>games</option>
                                         </select><br/>
                                         
-                                        <select ng-model="author" name="author" ng-change="getAuthorByName(author)">
+                                        <select ng-model="authorData.name" name="author" id="author" ng-change="getAuthorByName(author)">
                                             <option value="" disabled selected>Who the hell are you???</option>
                                             <option>Erick Dominguez</option>
                                             <option>Raul Roman</option>

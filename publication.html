@@ -35,6 +35,7 @@
 
         <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
         <script type='text/javascript' src='bower_components/angular/angular.js'></script>
+        <script type='text/javascript' src='node_modules/angular-resource/angular-resource.js'></script>
         <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
         <script type='text/javascript' src='js/generics/btn.js'></script>
         <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
@@ -339,49 +340,6 @@
 
 
 
-                                       <!--
-
-
-                                    <div class="related-posts">
-                                        <h3 class="related-posts_h">Related Posts</h3>
-                                        <ul class="related-posts_list clearfix">
-                                            <li class="related-posts_item">
-                                                <figure class="thumbnail featured-thumbnail">
-                                                    <a href="" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid."><img alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." src="">
-                                                    </a>
-                                                </figure><a href="#">Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid.</a>
-                                            </li>
-                                            <li class="related-posts_item">
-                                                <figure class="thumbnail featured-thumbnail">
-                                                    <a href="#" title="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."><img alt="Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia." src="">
-                                                    </a>
-                                                </figure><a href="#">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</a>
-                                            </li>
-                                            <li class="related-posts_item">
-                                                <figure class="thumbnail featured-thumbnail">
-                                                    <a href="">
-                                                    </a>
-                                                </figure><a href="">Lorem ipsum dolor sit amet conse ctetur adipisicing elit.</a>
-                                            </li>
-                                            <li class="related-posts_item">
-                                                <figure class="thumbnail featured-thumbnail">
-                                                    <a href="" title="Lorem ipsum dolor sit"><img alt="Lorem ipsum dolor sit" src="">
-                                                    </a>
-                                                </figure><a href="">Lorem ipsum dolor sit</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-
-
-
-
-
-
-
-
-                                    -->
-
 
 
                                     <div id="disqus_thread"></div>
@@ -512,23 +470,6 @@
                                 <div class="span4 sidebar" id="sidebar" data-motopress-type="static-sidebar">
 
 
-                                    <!--
-                                    <div id="categories-2" class="widget">
-                                        <h3>Categories</h3>
-                                        <ul>
-                                            <li class="cat-item cat-item-3"><a href="">Conse ctetur adipisicing</a>
-                                            </li>
-                                            <li class="cat-item cat-item-4"><a href="">Elit sed do eiusmod tempor</a>
-                                            </li>
-                                            <li class="cat-item cat-item-5"><a href="">Et dolore magna aliqua</a>
-                                            </li>
-                                            <li class="cat-item cat-item-1"><a href="">Incididunt ut labore</a>
-                                            </li>
-                                            <li class="cat-item cat-item-2"><a href="">Lorem ipsum dolor sit</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    -->
 
 
 
@@ -548,7 +489,7 @@
                                                 </figure>
                                                 <time datetime="2014-05-27T06:31">{{publication.date}}</time>
                                                     <h4 class="post-list_h">
-                                                        <a class="post-title" href="game_publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a>
+                                                        <a class="post-title" href="publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a>
                                                     </h4>
                                                 <div class="excerpt">
 
@@ -563,57 +504,6 @@
 
 
 
-
-                                    <!--
-
-                                    <div id="my-recent-comments-5" class="visible-all-devices widget">
-                                        <h3>Recent Comments</h3>
-                                        <ul class="comments-custom unstyled">
-                                            <li class="comments-custom_li">
-                                                <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
-                                                </figure>
-                                                <div class="meta_format">
-                                                    <h4 class="comments-custom_h_author">admin</h4>
-                                                </div>
-                                                <div class="meta_format">
-                                                    <time datetime="2014-05-27T08:09:00">May 27, 2014 8:09 am</time>
-                                                </div>
-                                                <div class="clear"></div>
-                                                <div class="comments-custom_txt">
-                                                    <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
-                                                </div>
-                                            </li>
-                                            <li class="comments-custom_li">
-                                                <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
-                                                </figure>
-                                                <div class="meta_format">
-                                                    <h4 class="comments-custom_h_author">admin</h4>
-                                                </div>
-                                                <div class="meta_format">
-                                                    <time datetime="2014-05-27T08:09:00">May 27, 2014 8:09 am</time>
-                                                </div>
-                                                <div class="clear"></div>
-                                                <div class="comments-custom_txt">
-                                                    <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
-                                                </div>
-                                            </li>
-                                            <li class="comments-custom_li">
-                                                <figure class="thumbnail featured-thumbnail"><img alt="" src="#" class="avatar avatar-64 photo" height="64" width="64">
-                                                </figure>
-                                                <div class="meta_format">
-                                                    <h4 class="comments-custom_h_author">admin</h4>
-                                                </div>
-                                                <div class="meta_format">
-                                                    <time datetime="2014-05-27T08:09:00">May 27, 2014 8:09 am</time>
-                                                </div>
-                                                <div class="clear"></div>
-                                                <div class="comments-custom_txt">
-                                                    <a href="#" title="Go to this comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean...</a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    -->
 
 
 
@@ -649,10 +539,6 @@
             </footer>
 
 
-            <div id="back-top-wrapper" class="visible-desktop">
-                <p id="back-top" style="display: none;">
-                    <a href="#top"><span></span></a> </p>
-            </div>
 
 
 

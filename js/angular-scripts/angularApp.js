@@ -19,15 +19,15 @@ var app = angular.module("app",[]);
     app.controller("publicationController",function($scope,$http,$sce){
 
         var id =  window.location.href.split('?')[1].split('=')[1];
-
-        $http.get(  '/API.php/publications/id/' + id  ).success(function(data) {
+        
+        $http.get(  '/api.php/publications/id/' + id  ).success(function(data) {
             $scope.publication = data;
             $scope.publication.content = $sce.trustAsHtml(data.content);
         });
         
         
          $scope.getAuthorById = function(){
-              $http.get(  '/API.php/author/bypublicationid/' + id  ).success(function(data) {        
+              $http.get(  '/api.php/author/bypublicationid/' + id  ).success(function(data) {        
                   $scope.author = data;
               });     
          }
@@ -49,25 +49,42 @@ var app = angular.module("app",[]);
     //PUBLICATION CONTROLLER
     app.controller("publicationWriterController",function($scope,$http,$sce){
       
+        
+        
         $scope.getSafe = function(){
             return $sce.trustAsHtml($scope.content);
         };
-        /*
-        $scope.setAuthor = function(author){
-            
-            getAuthorByName(author);
-            
-            $scope.author = $scope.authorData.name;
-            $scope.description = $scope.authorData.description;
-        };
-        */
+
         
         $scope.getAuthorByName = function(authorName){
        
-              $http.get(  '/API.php//author/name/' + authorName  ).success(function(data) {        
+              $http.get(  '/api.php//author/name/' + authorName  ).success(function(data) {        
                   $scope.authorData = data;
               });
         };
+        
+        
+        $http.get(  '/api.php/publications/all' ).success(function(data) {        
+            $scope.publications = data;
+        });
+       
+        
+        $scope.editPublicationHasChange = function(publication){
+            $scope.title =  publication.title; 
+            $scope.getAuthorById( publication.author_id );
+            $scope.image =  publication.image;
+            $scope.type =  publication.type;
+            $scope.content =  publication.content;
+            $scope.image = publication.preview_image;
+            $scope.publication_id = publication.publication_id;
+        };
+        
+        
+        $scope.getAuthorById = function(id){
+              $http.get(  '/api.php/author/bypublicationid/' + id  ).success(function(data) {        
+                  $scope.authorData = data;
+              });     
+         }
 
     });
 
@@ -75,9 +92,9 @@ var app = angular.module("app",[]);
 
 
 
-    app.controller("allNewsController",function($scope,$http,$filter,$interpolate){
+    app.controller("allNewsController",function($scope,$http,$filter){
 
-        $http.get('/API.php/publications/all').success(function(data) {
+        $http.get('/api.php/publications/all').success(function(data) {
             $scope.publications = data;
         });
         

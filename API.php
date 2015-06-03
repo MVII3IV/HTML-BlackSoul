@@ -10,10 +10,11 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
-        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul' ); 
+        return mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'  ); 
     }
 
 
+    
 
     //END POINTS
         //GET ALL THE PUBLICATIONS
@@ -77,7 +78,79 @@
             
             mysqli_close($db); 
         });
-      
+
+
+
+
+
+
+         $app->post('/delpublication', function () {     
+        
+            $db  = connectToDataBase();
+            
+            $sql = 'DELETE FROM publications WHERE publication_id = @publication_id';
+            $sql = str_replace("@publication_id",  $_POST['publication_id'] , $sql);   
+            
+            echo $sql;
+    
+            $result = mysqli_query($db,$sql); 
+            
+            mysqli_close($db); 
+        });
+
+
+
+
+    
+
+        $app->post('/editpublication', function () {     
+
+            
+            $db  = connectToDataBase();
+            
+            $sql = 'UPDATE publications SET title = @title, content = @content, date = @date, type = @type';
+            
+            
+            $sql = str_replace("@title",  '\'' . $_POST['title'] . '\'' , $sql);
+            $sql = str_replace("@content",  '\'' . $_POST['content'] . '\'' , $sql);
+            $sql = str_replace("@date",   '\'' . date("Y-m-d") . '\'' , $sql);
+            $sql = str_replace("@type",  '\'' . $_POST['type'] . '\'' , $sql);
+            
+
+            
+            $uploadfile = "";
+            
+            if($_FILES['image']['name'] != null)
+            {
+                $uploaddir = 'images/publications/';
+                $uploadfile = $uploaddir . basename($_FILES['image']['name']);
+
+                 if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) 
+                    echo "El archivo es valido y fue cargado exitosamente.\n";
+                 else 
+                    echo "¡Posible ataque de carga de archivos!\n";   
+                
+                $sql = $sql . ', preview_image = \'' . $uploadfile . '\'';
+            }
+            else
+            {
+                echo 'no';
+            }
+            
+            
+            $sql = $sql . ' WHERE publication_id = @publication_id';
+            $sql = str_replace("@publication_id",  $_POST['publication_id'] , $sql);
+            
+            
+            echo $sql;
+
+    
+            $result = mysqli_query($db,$sql); 
+            
+            mysqli_close($db); 
+        });
+
+
 
         $app->get('/publications/id/:id', function($id) {
 
