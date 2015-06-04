@@ -29,7 +29,7 @@ CREATE TABLE `authors` (
   `display_picture` varchar(100) COLLATE latin1_german1_ci DEFAULT NULL,
   PRIMARY KEY (`author_id`),
   UNIQUE KEY `author_id_UNIQUE` (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `authors` (
 
 LOCK TABLES `authors` WRITE;
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
-INSERT INTO `authors` VALUES (1,'Erick Dom.','esta debe ser una descripcion que hable de el','\\images\\team\\blacksoul_team_erick.jpg'),(2,'Raul Roman','esta debe ser una descripcion que hable de Raul Roman','\\images\\team\\blacksoul_team_erick.jpg');
+INSERT INTO `authors` VALUES (1,'Erick Dominguez','One of the founders of Black Soul, he is a hardware system engineer with a big passion for game design, Erick has been designing games for a while, he is in charge of modeling and texturing what you see in our games, has experience with some game engines and 3d software, if something is not perfect he is going to let us know.','\\images\\team\\blacksoul_team_erick.jpg'),(2,'Raul Roman','esta debe ser una descripcion que hable de Raul Roman','\\images\\team\\blacksoul_team_erick.jpg'),(3,'Carlos Contreras','esta debe ser una descripcion que hable de charly','\\images\\team\\blacksoul_team_erick.jpg'),(4,'Tony Ortega','esta debe ser una descripcion que hable de tony','\\images\\team\\blacksoul_team_erick.jpg');
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-27 16:28:14
+-- Dump completed on 2015-06-04 15:50:05

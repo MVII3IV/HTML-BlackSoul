@@ -41,8 +41,6 @@ var app = angular.module("app",[]);
         templateUrl: 'bs-header55.html'
       };
     });
-    
-    
 
 
     
