@@ -57,8 +57,7 @@ var app = angular.module("app",[]);
 
         
         $scope.getAuthorByName = function(authorName){
-       
-              $http.get(  '/api.php//author/name/' + authorName  ).success(function(data) {        
+              $http.get(  '/api.php/author/name/' + authorName  ).success(function(data) {        
                   $scope.authorData = data;
               });
         };

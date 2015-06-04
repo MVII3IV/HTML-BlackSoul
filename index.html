@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black soul</title>
-    <link rel="icon" href="http://livedemo00.template-help.com/wordpress_51908/wp-content/themes/theme51908/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="images/generics/icon.png" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css" />
     <link rel="stylesheet" type="text/css" media="all" href="css/camera.css" />
@@ -200,16 +200,7 @@
                 <div class="row">
                     <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="5524081812d55">
                         <div class="nav-wrap">
-                            <div class="row">
-                                <div class="span12">
-                                    <div class="search-form__h hidden-phone clearfix">
-                                        <form id="search-header" class="navbar-form pull-right" method="get" action="#" accept-charset="utf-8">
-                                            <input type="text" name="s" placeholder="search" class="search-form_it" id="search-form_it">
-                                            <input type="submit" value="Go" id="search-form_is" class="search-form_is btn">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="row">
                                 <div class="span5" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
 
@@ -245,11 +236,9 @@
 
                                             <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">News</a>
                                             </li>
-                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">Contacts</a>
+                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact.html">Contacts</a>
                                             </li>
-                                            <li class='menu-item search'><a href='#'><i class='icon-search'></i></a>
-                                                <div class='helper'></div>
-                                            </li>
+                                           
                                         </ul>
                                     </nav>
                                 </div>
@@ -289,7 +278,7 @@
                         <li data-preview="images/firstpage/portada.png" data-img-width="1459" data-img-height="715" data-ulr-link="#">
                         </li>
                         
-                        <li data-preview="images/firstpage/sh_dp_05.jpg" data-img-width="1920" data-img-height="1051" data-ulr-link="#">
+                        <li data-preview="images/firstpage/sh_dp_05.png" data-img-width="1920" data-img-height="1051" data-ulr-link="#">
                             <div class="slider_caption>">
                                 <h2>Inside The Hell</h2>
                                 <h4>have you ever felt locked in somewhere and felt that you can not escape? are you ready to pay for your sins? try to play at your own risk.</h4>
@@ -481,7 +470,7 @@
 
 
                                                             
-                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-date' | limitTo:3" ng-if="publications.length > 3  && publication.publication_id != 1 && publication.publication_id != 2 && publication.publication_id != 3">
+                                                            <li class="span4 list-item-1" ng-repeat="publication in publications | orderBy:'-date' | limitTo:3" ng-if="publications.length > 3  && publication.publication_id != publicationIndex0 && publication.publication_id != publicationIndex1 && publication.publication_id != publicationIndex2">
                                                                 <div class="thumb">
                                                                     <figure class="featured-thumbnail thumbnail">
                                                                         <a href="{{publication.preview_image}}" title="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." rel="prettyPhoto-643011515"><img ng-src="{{publication.preview_image}}"  alt="Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incidid." />

@@ -40,6 +40,12 @@
         });
 
 
+
+
+
+
+
+
         $app->post('/addpublication', function () {     
 
             
@@ -77,31 +83,11 @@
             $result = mysqli_query($db,$sql); 
             
             mysqli_close($db); 
+            
+            header("Location: ../query_result.html");
+            die();
         });
 
-
-
-
-
-
-         $app->post('/delpublication', function () {     
-        
-            $db  = connectToDataBase();
-            
-            $sql = 'DELETE FROM publications WHERE publication_id = @publication_id';
-            $sql = str_replace("@publication_id",  $_POST['publication_id'] , $sql);   
-            
-            echo $sql;
-    
-            $result = mysqli_query($db,$sql); 
-            
-            mysqli_close($db); 
-        });
-
-
-
-
-    
 
         $app->post('/editpublication', function () {     
 
@@ -148,7 +134,38 @@
             $result = mysqli_query($db,$sql); 
             
             mysqli_close($db); 
+            
+            header("Location: ../query_result.html");
+            die();
         });
+
+
+        $app->post('/delpublication', function () {     
+        
+            $db  = connectToDataBase();
+            
+            $sql = 'DELETE FROM publications WHERE publication_id = @publication_id';
+            $sql = str_replace("@publication_id",  $_POST['publication_id'] , $sql);   
+            
+            echo $sql;
+    
+            $result = mysqli_query($db,$sql); 
+            
+            mysqli_close($db); 
+            
+            header("Location: ../query_result.html");
+            die();
+        });
+
+
+
+
+
+
+
+
+
+
 
 
 
