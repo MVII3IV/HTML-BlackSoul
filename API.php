@@ -10,7 +10,9 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
+
         return mysqli_connect( '67.225.221.232:3306', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'  ); 
+
     }
 
 
