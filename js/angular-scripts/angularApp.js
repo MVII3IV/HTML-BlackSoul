@@ -31,6 +31,22 @@ var app = angular.module("app",[]);
                   $scope.author = data;
               });     
          }
+         
+         
+          $scope.translatePage = function(id, language){
+            
+           
+                $http.get(  '/api.php/publication/translate/' + id + '/' + language  ).success(function(data) {
+                    $scope.publication = data;
+                    $scope.publication.content = $sce.trustAsHtml(data.content);
+                });
+              
+               $http.get(  '/api.php/author/id_language/' + id  + '/' + language ).success(function(data) {        
+                  $scope.author = data;
+              });    
+              
+          };
+        
 
          
     })
@@ -81,7 +97,7 @@ var app = angular.module("app",[]);
               $http.get(  '/api.php/author/bypublicationid/' + id  ).success(function(data) {        
                   $scope.authorData = data;
               });     
-         }
+         };
 
     });
 
@@ -90,20 +106,23 @@ var app = angular.module("app",[]);
 
 
     app.controller("allNewsController",function($scope,$http,$filter){
+        
+        
+         
 
-        $http.get('/api.php/publications/all').success(function(data) {
-            $scope.publications = data;
-        });
+          $http.get('/api.php/publications/all').success(function(data) {
+             $scope.publications = data;
+          });
         
         
-      $scope.formateDate = function(date){
-          return Date.parse(date);
-      };
-        
-      $scope.getCurrentPageId = function()
-      {
-          return  window.location.href.split('?')[1].split('=')[1];
-      }
+          $scope.formateDate = function(date){
+              return Date.parse(date);
+          };
+
+          $scope.getCurrentPageId = function()
+          {
+              return  window.location.href.split('?')[1].split('=')[1];
+          }
         
         
     });

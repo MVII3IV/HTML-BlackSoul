@@ -213,10 +213,18 @@
                                 <div class="row">
                                     <div class="span12">
                                         <div class="search-form__h hidden-phone clearfix">
+                                           
+                                            
+                                            
+                                            
                                             <form id="search-header" class="navbar-form pull-right" method="get" action="#" accept-charset="utf-8">
                                                 <input type="text" name="s" placeholder="search" class="search-form_it" id="search-form_it">
                                                 <input type="submit" value="Go" id="search-form_is" class="search-form_is btn">
                                             </form>
+                                            
+                                            
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -269,14 +277,18 @@
             <div class="motopress-wrapper content-holder clearfix" ng-controller="allNewsController">
                 <div class="container">
                     <div class="row">
-                        <div class="span12" data-motopress-wrapper-file="single.php" data-motopress-wrapper-type="content">
+                        <div class="span12" data-motopress-wrapper-type="content">
 
 
-
-
-                             <!-- BREADCRUMB SECTION-->
+                                    <!-- BREADCRUMB SECTION-->
+                            <button ng-model="button_english" ng-click="translatePage(publication.publication_id, 'english')">English</button>
+                            <button ng-model="button_spanish"  ng-click="translatePage(publication.publication_id, 'spanish')">Spanish</button>
+                            <button ng-model="button_portuguese" ng-click="translatePage(publication.publication_id , 'portuguese')">Portuguese</button>
+                            
+                            
+                            <!-- BREADCRUMB SECTION-->
                             <div class="row">
-                                <div class="span12" data-motopress-type="static" data-motopress-static-file="static/static-title.php">
+                                <div class="span12" data-motopress-type="static">
                                     <section class="title-section">
                                         <h1 class="title-header"> {{publication.title}}</h1>
 
