@@ -43,6 +43,7 @@
             //Creamos el JSON
             $json_string = json_encode($rows);
             echo $json_string;      
+            
         });
 
 
@@ -179,6 +180,7 @@
 
 
         $app->post('/editpublication', function () {     
+
 
             
             $db  = connectToDataBase();

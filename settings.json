@@ -1,0 +1,70 @@
+{
+    "english":
+        {
+        "home": "home",
+        "games":"games",
+        "news": "news",
+        "contact":"contact",
+        "latestPosts":"Latest Posts",
+        "gameNews":"Game News",
+        "recentPosts":"recent posts",
+        "bestReviews":"Best reviews",
+        "archive":"Archive",
+
+        "kickstarter":"We really apreciate your collaboration, any help makes the diference. Make a donation today and help BlackSoul to launch more games!",
+
+        "greenLightTitle":"Now we are on Steam Greenlight",
+        "greenLightContent":"GreenLight us and help to release more BlackSoul Games!",
+
+        "privacyPolicy":"Privacy Policy"
+        }
+    ,
+    
+    
+    
+    
+     "spanish":
+        {
+        "home": "inicio",
+        "games":"juegos",
+        "news": "noticias",
+        "contact":"contacto",
+        "latestPosts":"Ultimas publicaciones",
+        "gameNews":"Noticias de Juegos",
+        "recentPosts":"Publicaciones recientes",
+        "bestReviews":"Mejor puntuadas",
+        "archive":"Archivo",
+
+        "kickstarter":"De verdad apreciamos tu colaboracion, cualquier ayuda hace la diferencias, has una donacion y ayuda a Black Soul a lanzar mas juegos!",
+
+        "greenLightTitle":"Ahora estamos en Steam Greenlight",
+        "greenLightContent":"Vota por nosotros y ayuda a que podamos lanzar mas juegos!",
+
+        "privacyPolicy":"Politicas de Privacidad"
+        }
+    ,
+    
+    
+    
+    
+    
+     "portuguese":
+        {
+        "home": "inicio",
+        "games":"jogos",
+        "news": "news",
+        "contact":"contact",
+        "latestPosts":"Latest Posts",
+        "gameNews":"Game News",
+        "recentPosts":"recent posts",
+        "bestReviews":"Best reviews",
+        "archive":"Archive",
+
+        "kickstarter":"We really apreciate your collaboration, any help makes the diference. Make a donation today and help BlackSoul to launch more games!",
+
+        "greenLightTitle":"Now we are on Steam Greenlight",
+        "greenLightContent":"GreenLight us and help to release more BlackSoul Games!",
+
+        "privacyPolicy":"Privacy Policy"
+        }
+}

@@ -32,7 +32,7 @@
 
     <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
-    <script type='text/javascript' src='node_modules/angular-resource/angular-resource.js'></script>
+    <script type='text/javascript' src='bower_components/angular-cookies/angular-cookies.js'></script>
     <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
     <script type='text/javascript' src='js/generics/btn.js'></script>
     <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
@@ -173,7 +173,7 @@
 
 </head>
 
-<body class="home page page-id-203 page-template page-template-page-home-php chrome">
+<body class="home page page-id-203 page-template page-template-page-home-php chrome"   ng-controller="allNewsController" ng-init="printLanguage()">
 
 
     <div id="fb-root"></div>
@@ -214,11 +214,11 @@
                                     <nav class="nav nav__primary clearfix">
                                         <ul id="topnav" class="sf-menu">
                                             <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item">
-                                                <a href="#">Home</a>
+                                                <a href="#">{{languageSettings.home}}</a>
 
                                             </li>
                                             <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-                                                <a href="#">Games</a>
+                                                <a href="#">{{languageSettings.games}}</a>
                                                 <ul class="sub-menu">
                                                     <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
                                                         <a href="#">Inside The Hell</a>
@@ -234,9 +234,9 @@
                                                 </ul>
                                             </li>
 
-                                            <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">News</a>
+                                            <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">{{languageSettings.news}}</a>
                                             </li>
-                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact.html">Contacts</a>
+                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact.html">{{languageSettings.contact}}</a>
                                             </li>
                                            
                                         </ul>
@@ -308,8 +308,7 @@
                                                         <a href="https://www.kickstarter.com/"><img src="images/generics/kickstarter-logo.png" width="500">
                                                         </a>
 
-                                                        <p>We really apreciate your collaboration, any help makes the diference.</p>
-                                                        <p>Make a donation today and help BlackSoul to launch more games!</p>
+                                                        <p>{{languageSettings.kickstarter}}</p>
 
                                                     </div>
                                                 </div>
@@ -336,7 +335,7 @@
                                         <div class="mp-span12 motopress-span">
                                             <div>
                                                 <div class="title-box clearfix ">
-                                                    <h2 class="title-box_primary">LATEST POSTS</h2>
+                                                    <h2 class="title-box_primary">{{languageSettings.latestPosts}}</h2>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +346,7 @@
                                         <div class="mp-span12 motopress-span">
                                             <div class="mp-row-fluid motopress-row">
                                                 <div class="mp-span12 motopress-span">
-                                                    <div   ng-controller="allNewsController">
+                                                    <div>
 
 
 
@@ -553,8 +552,8 @@
                                                             <img src="images/generics/steam.png" width="300">
                                                         </a>
 
-                                                        <h4>Now we are on Steam Greenlight</h4>
-                                                        <p>GreenLight us and help to release more BlackSoul Games!</p>
+                                                        <h4>{{languageSettings.greenLightTitle}}</h4>
+                                                        <p>{{languageSettings.greenLightContent}}</p>
 
                                                     </div>
                                                 </div>
@@ -608,7 +607,7 @@
 
                                 <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-1" >
                                     <div id="categories-3">
-                                        <h4>Game News</h4>
+                                        <h4>{{languageSettings.gameNews}}</h4>
                                         <ul>
                                             <li class="cat-item cat-item-3" ng-repeat="publication in publications" ng-if="publication.type == 'games'">
                                                 <a href="publication.html?id={{publication.publication_id}}">{{publication.title}}</a>
@@ -628,7 +627,7 @@
 
                                 <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-2">
                                     <div id="my_poststypewidget-3" class="visible-all-devices footer-recent-posts  ">
-                                        <h4>Recent Posts</h4>
+                                        <h4>{{languageSettings.recentPosts}}</h4>
                                         
                                         <ul class='post-list unstyled'>
                                             <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications | limitTo:6 |orderBy:'-id'">
@@ -652,7 +651,7 @@
 
                                 <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-6">
                                     <div id="my_poststypewidget-4" class="visible-all-devices footer-best-reviews  ">
-                                        <h4>Best Reviews</h4>
+                                        <h4>{{languageSettings.bestReviews}}</h4>
                                         <ul class='post-list unstyled'>
                                             <li class="cat_post_item-1 clearfix" ng-repeat="publication in publications" ng-if="publication.review > 4">
                                                 <h4 class="post-list_h"><a class="post-title" href="publication.html?id={{publication.publication_id}}" rel="bookmark">{{publication.title}}</a></h4>
@@ -675,7 +674,7 @@
 
                                 <div class="span3" data-motopress-type="dynamic-sidebar" data-motopress-sidebar-id="footer-sidebar-4">
                                     <div id="archives-2" class="visible-all-devices ">
-                                        <h4>Archive</h4>
+                                        <h4>{{languageSettings.archive}}</h4>
                                         <ul>
                                             <li><a href=''>June 2015</a>
                                             </li>
@@ -723,7 +722,7 @@
                         <div class="row copyright">
                             <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
                                 <div id="footer-text" class="footer-text">
-                                    <a href="#" title="" class="site-name">BlackSoul</a> &copy; 2015. <span><a href="#" title="Privacy Policy">Privacy Policy</a></span>
+                                    <a href="#" title="" class="site-name">BlackSoul</a> &copy; 2015. <span><a href="#" title="Privacy Policy">{{languageSettings.privacyPolicy}}</a></span>
 
                                 </div>
                             </div>

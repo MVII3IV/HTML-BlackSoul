@@ -1,6 +1,4 @@
-var app = angular.module("app",[]);
-
-
+var app = angular.module("app",['ngCookies']);
 
 //FILTER SECTION
 
@@ -105,16 +103,55 @@ var app = angular.module("app",[]);
 
 
 
-    app.controller("allNewsController",function($scope,$http,$filter,SessionLanguageService){
+    app.controller("allNewsController",function($scope,$http,$filter,$cookies){
+
+        var currentLanguage = $cookies.get('language');
         
         
-          SessionLanguageService.setSessionLanguage("portuguese");
-        
-          alert(SessionLanguageService.getSessionLanguage());
+        if(currentLanguage == null){
+            var a = $scope.getLan();
+        }
+
+         
+        $scope.getLan = function(){
+            alert('asdsad');
+        };
         
           
+        $scope.setLanguage = function(){
+             $cookies.put('language', 'asdsad');
+        };
         
-
+        $scope.getLanguage = function(){
+            return $cookies.get('language');
+        };
+        
+        $scope.printLanguage = function(){
+            alert($scope.getLanguage());
+        };
+        
+        
+        
+        
+        
+         //first of all check the language then go for the settings
+         $http.get('/settings.json').success(function(settings) {
+             if($scope.getLanguage() === 'english')
+             $scope.languageSettings = settings.english;
+             
+              if($scope.getLanguage() === 'spanish')
+             $scope.languageSettings = settings.spanish;
+             
+              if($scope.getLanguage() === 'portuguese')
+             $scope.languageSettings = settings.portuguese;
+          });
+        
+        
+        
+        
+        
+        
+        
         
           $http.get('/api.php/publications/all').success(function(data) {
              $scope.publications = data;
@@ -134,16 +171,3 @@ var app = angular.module("app",[]);
 
 
 
-    app.service('SessionLanguageService', function() {
-        
-        var sessionLanguage = "english"
-        
-        this.setSessionLanguage = function(language){
-            sessionLanguage = language;
-        };
-        
-        this.getSessionLanguage = function(){
-            return sessionLanguage;
-        };
-
-    });
