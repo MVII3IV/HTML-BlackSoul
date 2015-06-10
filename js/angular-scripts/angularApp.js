@@ -105,11 +105,17 @@ var app = angular.module("app",[]);
 
 
 
-    app.controller("allNewsController",function($scope,$http,$filter){
+    app.controller("allNewsController",function($scope,$http,$filter,SessionLanguageService){
         
         
-         
+          SessionLanguageService.setSessionLanguage("portuguese");
+        
+          alert(SessionLanguageService.getSessionLanguage());
+        
+          
+        
 
+        
           $http.get('/api.php/publications/all').success(function(data) {
              $scope.publications = data;
           });
@@ -123,7 +129,21 @@ var app = angular.module("app",[]);
           {
               return  window.location.href.split('?')[1].split('=')[1];
           }
-        
-        
+          
     });
 
+
+
+    app.service('SessionLanguageService', function() {
+        
+        var sessionLanguage = "english"
+        
+        this.setSessionLanguage = function(language){
+            sessionLanguage = language;
+        };
+        
+        this.getSessionLanguage = function(){
+            return sessionLanguage;
+        };
+
+    });
