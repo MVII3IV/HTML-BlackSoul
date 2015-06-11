@@ -22,12 +22,12 @@
 ///////////////////////////////////////////////////////////////////////////////////////
 
         //GET ALL THE PUBLICATIONS
-        $app->get('/publications/all', function () {     
+        $app->get('/publications/all/:language', function ($language) {     
 
             $db  = connectToDataBase();
             mysqli_set_charset($db, "utf8");
             
-            $sql = 'SELECT * FROM publications_english'; 
+            $sql = 'SELECT * FROM publications_' . $language; 
             $result = mysqli_query($db,$sql); 
 
 
@@ -77,12 +77,12 @@
 
 
         //GET A AUTHOR BY ID
-        $app->get('/author/bypublicationid/:id', function($id) {
+        $app->get('/author/bypublicationid/:id/:language', function($id,$language) {
 
                 $db  = connectToDataBase();
                 mysqli_set_charset($db, "utf8");
             
-                $sql = 'select * from authors_english where author_id = (select author_id from publications_english where publication_id = ' . $id .' )'; 
+                $sql = 'select * from authors_'.$language.' where author_id = (select author_id from publications_english where publication_id = ' . $id .' )'; 
                 $result = mysqli_query($db,$sql); 
            
                 $rows = array();

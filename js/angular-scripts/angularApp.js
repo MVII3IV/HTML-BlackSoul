@@ -13,56 +13,50 @@ var app = angular.module("app",['ngCookies']);
 
 
 
-//CONTROLLERS
-    app.controller("publicationController",function($scope,$http,$sce){
+
+
+
+
+
+
+
+
+    //IN CHARGE OF GET THE PUBLICATION BY ID AND LANGUAGE
+    app.controller("publicationController",function($scope,$http,$sce,$cookies){
 
         var id =  window.location.href.split('?')[1].split('=')[1];
+        var currentLanguage = $cookies.get('language');
         
-        $http.get(  '/api.php/publications/id/' + id  ).success(function(data) {
-            $scope.publication = data;
-            $scope.publication.content = $sce.trustAsHtml(data.content);
-        });
+        if(currentLanguage == null){
+                $cookies.put('language','english');
+                currentLanguage = $cookies.get('language');
+            }
         
+        $http.get('/api.php/publication/translate/' + id + '/' + currentLanguage ).success(function (data) {
+                    $scope.publication = data;
+                    $scope.publication.content = $sce.trustAsHtml(data.content);
+                });
+        
+    
+       
+  
         
          $scope.getAuthorById = function(){
-              $http.get(  '/api.php/author/bypublicationid/' + id  ).success(function(data) {        
+              $http.get(  '/api.php/author/bypublicationid/' + id  + '/' + currentLanguage).success(function(data) {        
                   $scope.author = data;
               });     
          }
          
-         
-          $scope.translatePage = function(id, language){
-            
-           
-                $http.get(  '/api.php/publication/translate/' + id + '/' + language  ).success(function(data) {
-                    $scope.publication = data;
-                    $scope.publication.content = $sce.trustAsHtml(data.content);
-                });
-              
-               $http.get(  '/api.php/author/id_language/' + id  + '/' + language ).success(function(data) {        
-                  $scope.author = data;
-              });    
-              
-          };
-        
-
-         
-    })
-    
-    .directive('headerDirective', function() {
-      return {
-        restrict: 'E',
-        templateUrl: 'bs-header55.html'
-      };
+          
     });
+
+
 
 
     
     //PUBLICATION CONTROLLER
     app.controller("publicationWriterController",function($scope,$http,$sce){
-      
-        
-        
+       
         $scope.getSafe = function(){
             return $sce.trustAsHtml($scope.content);
         };
@@ -101,71 +95,87 @@ var app = angular.module("app",['ngCookies']);
 
 
 
+    
+
+    app.controller("allNewsController",function($scope,$http,$filter,$cookies,$sce){
+        
+        //////////////////////////TRASNLATIONS PART///////////////////////////
+        
+        $scope.setLanguage = function(language){
+                 $cookies.put('language', language);
+            };
+
+            $scope.getLanguage = function(){
+                return $cookies.get('language');
+            };
+
+            var currentLanguage = $scope.getLanguage();
+
+            if(currentLanguage == null){
+                $scope.setLanguage('english');
+                currentLanguage = $scope.getLanguage();
+            }
 
 
-    app.controller("allNewsController",function($scope,$http,$filter,$cookies){
+            //GET TO OBTAIN FOR A COOKIE LANGUAGE ITS SETTINGS LANGUAGE
+             $http.get('/settings.json').success(function(settings) {
+                 if($scope.getLanguage() === 'english')
+                 $scope.languageSettings = settings.english;
 
-        var currentLanguage = $cookies.get('language');
-        
-        
-        if(currentLanguage == null){
-            var a = $scope.getLan();
-        }
+                  if($scope.getLanguage() === 'spanish')
+                 $scope.languageSettings = settings.spanish;
 
-         
-        $scope.getLan = function(){
-            alert('asdsad');
-        };
+                  if($scope.getLanguage() === 'portuguese')
+                 $scope.languageSettings = settings.portuguese;
+              });
+
+
         
-          
-        $scope.setLanguage = function(){
-             $cookies.put('language', 'asdsad');
-        };
+             //FUNCTION TO LOAD TRANLATED PAGE
+            $scope.translateIndex = function (language) {
+                
+                $cookies.put('language', language);
+
+                 $http.get('/api.php/publications/all/' + language).success(function(data) {
+                     $scope.publications = data;
+                  });
+
+            };
+            //////////////////////////END OF TRASNLATIONS PART///////////////////////////
         
-        $scope.getLanguage = function(){
-            return $cookies.get('language');
-        };
-        
-        $scope.printLanguage = function(){
-            alert($scope.getLanguage());
-        };
-        
-        
-        
-        
-        
-         //first of all check the language then go for the settings
-         $http.get('/settings.json').success(function(settings) {
-             if($scope.getLanguage() === 'english')
-             $scope.languageSettings = settings.english;
-             
-              if($scope.getLanguage() === 'spanish')
-             $scope.languageSettings = settings.spanish;
-             
-              if($scope.getLanguage() === 'portuguese')
-             $scope.languageSettings = settings.portuguese;
-          });
-        
-        
-        
-        
+
+
+            //FUNCTION TO LOAD TRANLATED PUBLICATION
+            $scope.translatePage = function (id, language) {
+                $cookies.put('language', language);
+
+                $http.get('/api.php/publication/translate/' + id + '/' + language).success(function (data) {
+                    $scope.publication = data;
+                    $scope.publication.content = $sce.trustAsHtml(data.content);
+                });
+
+                $http.get('/api.php/author/id_language/' + id + '/' + language).success(function (data) {
+                    $scope.author = data;
+                });
+
+            };
+         //////////////////////////END OF TRASNLATIONS PART///////////////////////////
         
         
         
-        
-          $http.get('/api.php/publications/all').success(function(data) {
+          $http.get('/api.php/publications/all/' + currentLanguage).success(function(data) {
              $scope.publications = data;
           });
-        
         
           $scope.formateDate = function(date){
               return Date.parse(date);
           };
 
-          $scope.getCurrentPageId = function()
-          {
+          $scope.getCurrentPageId = function() {
               return  window.location.href.split('?')[1].split('=')[1];
           }
+          
+          
           
     });
 
