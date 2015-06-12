@@ -198,92 +198,101 @@
     <body class="single single-post postid-71 single-format-standard chrome cat-1-id" data-twttr-rendered="true" ng-controller="publicationController">
 
 
-            <div id="motopress-main" class="main-holder" >
+            <div id="motopress-main" class="main-holder" ng-controller="allNewsController">
 
 
 
 
 
             <!--THIS IS THE HEADER SECTION-->
-            <header class="motopress-wrapper header">
-                <div class="container">
-                    <div class="row">
-                        <div class="span12" data-motopress-wrapper-file="" data-motopress-wrapper-type="header" data-motopress-id="5524081812d55">
-                            <div class="nav-wrap">
-                                <div class="row">
-                                    <div class="span12">
-                                        <div class="search-form__h hidden-phone clearfix">
-                                           
-                                            
-                                            
-                                            
-                                            <form id="search-header" class="navbar-form pull-right" method="get" action="#" accept-charset="utf-8">
-                                                <input type="text" name="s" placeholder="search" class="search-form_it" id="search-form_it">
-                                                <input type="submit" value="Go" id="search-form_is" class="search-form_is btn">
-                                            </form>
-                                            
-                                            
-                                            
-                                            
-                                        </div>
+        <header class="motopress-wrapper header">
+            <div class="container">
+                <div class="row">
+                    <div class="span12" data-motopress-wrapper-file="wrapper/wrapper-header.php" data-motopress-wrapper-type="header" data-motopress-id="5524081812d55">
+                        <div class="nav-wrap">
+                           
+                            <div class="row">
+                                <div class="span5" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
+
+                                    <div class="logo pull-left">
+                                        <a href="../" class="logo_h logo_h__img"><img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="span5" data-motopress-type="static" data-motopress-static-file="static/static-logo.php">
+                                <div class="span7" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
 
-                                        <div class="logo pull-left">
-                                            <a href="../" class="logo_h logo_h__img"><img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="span7" data-motopress-type="static" data-motopress-static-file="static/static-nav.php">
+                                    <nav class="nav nav__primary clearfix">
+                                        <ul id="topnav" class="sf-menu">
+                                            <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item">
+                                                <a href="#">{{languageSettings.home}}</a>
 
-                                        <nav class="nav nav__primary clearfix">
-                                            <ul id="topnav" class="sf-menu">
-                                                <li id="menu-item-1807" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-203 current_page_item">
-                                                    <a href="#">Home</a>
+                                            </li>
+                                            <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                                                <a href="#">{{languageSettings.games}}</a>
+                                                <ul class="sub-menu">
+                                                    <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                        <a href="#">Inside The Hell</a>
+                                                    </li>
 
-                                                </li>
-                                                <li id="menu-item-1808" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-                                                    <a href="#">Games</a>
-                                                    <ul class="sub-menu">
-                                                        <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
-                                                            <a href="#">Inside The Hell</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
 
-                                                <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">News</a>
-                                                </li>
-                                                <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">Contacts</a>
-                                                </li>
-                                               
-                                            </ul>
-                                        </nav>
-                                    </div>
+
+
+
+
+
+
+                                                </ul>
+                                            </li>
+
+                                            <li id="menu-item-1806" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#">{{languageSettings.news}}</a>
+                                            </li>
+                                            <li id="menu-item-1804" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="contact.html">{{languageSettings.contact}}</a>
+                                            </li>
+                                            
+                                            
+                                            
+                                            
+                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+                                                <a href="#">{{languageSettings.language}}</a>
+                                                <ul class="sub-menu">
+                                                    
+                                                    <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                        <a ng-click="translatePage(publication.publication_id, 'english')">{{languageSettings.english}}</a>
+                                                    </li>
+                                                    <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                        <a ng-click="translatePage(publication.publication_id, 'spanish')">{{languageSettings.spanish}}</a>
+                                                    </li>
+                                                    <li id="menu-item-1815" class="menu-item menu-item-type-post_type menu-item-object-page">
+                                                        <a ng-click="translatePage(publication.publication_id, 'portuguese')">{{languageSettings.portuguese}}</a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </li>
+                                            
+                                            
+                                            
+                                           
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
 
 
             
             
 
-            <div class="motopress-wrapper content-holder clearfix" ng-controller="allNewsController">
+            <div class="motopress-wrapper content-holder clearfix">
                 <div class="container">
                     <div class="row">
                         <div class="span12" data-motopress-wrapper-type="content">
 
 
-                            <!-- BREADCRUMB SECTION-->
-                            <button ng-model="button_english" ng-click="translatePage(publication.publication_id, 'english')">English</button>
-                            <button ng-model="button_spanish"  ng-click="translatePage(publication.publication_id, 'spanish')">Spanish</button>
-                            <button ng-model="button_portuguese" ng-click="translatePage(publication.publication_id , 'portuguese')">Portuguese</button>
-                            
-                            
                             <!-- BREADCRUMB SECTION-->
                             <div class="row">
                                 <div class="span12" data-motopress-type="static">
@@ -488,7 +497,7 @@
 
                                     <!--RECENT NEWS PART-->
                                     <div id="my_poststypewidget-2" class="widget" >
-                                        <h3>Recent Posts</h3>
+                                        <h3>{{languageSettings.recentPosts}}</h3>
                                         <ul class="post-list unstyled">
 
 
@@ -539,7 +548,7 @@
                             <div class="row copyright">
                                 <div class="span6" data-motopress-type="static" data-motopress-static-file="static/static-footer-text.php">
                                     <div id="footer-text" class="footer-text">
-                                        <a href="#" title="" class="site-name">BlackSoul</a> © 2015. <span><a href="#" title="Privacy Policy">Privacy Policy</a></span>
+                                        <a href="#" title="" class="site-name">BlackSoul</a> © 2015. <span><a href="#" title="Privacy Policy">{{languageSettings.privacyPolicy}}</a></span>
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,7 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
-        return mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'   ); 
+        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'    ); 
         
     }
 
@@ -48,6 +48,7 @@
 
 
         //GET publications by id
+/*
         $app->get('/publications/id/:id', function($id) {
 
                 $db  = connectToDataBase();
@@ -74,7 +75,9 @@
              $json_string = json_encode($rows[0]);
              echo $json_string;      
         });
+*/
 
+        
 
         //GET A AUTHOR BY ID
         $app->get('/author/bypublicationid/:id/:language', function($id,$language) {
@@ -230,6 +233,11 @@
             header("Location: ../query_result.html");
             die();
         });
+
+
+
+
+
 
 
         $app->post('/delpublication', function () {     

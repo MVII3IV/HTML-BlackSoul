@@ -100,38 +100,46 @@ var app = angular.module("app",['ngCookies']);
     app.controller("allNewsController",function($scope,$http,$filter,$cookies,$sce){
         
         //////////////////////////TRASNLATIONS PART///////////////////////////
-        
-        $scope.setLanguage = function(language){
-                 $cookies.put('language', language);
+            $scope.setLanguage = function(language){
+                     $cookies.put('language', language);
             };
 
             $scope.getLanguage = function(){
-                return $cookies.get('language');
+                    return $cookies.get('language');
             };
+        
+            $scope.getSettings = function(){
+                 $http.get('/settings.json').success(function(settings) {
+                     
+                     if($scope.getLanguage() === 'english')
+                     $scope.languageSettings = settings.english;
+
+                      if($scope.getLanguage() === 'spanish')
+                     $scope.languageSettings = settings.spanish;
+
+                      if($scope.getLanguage() === 'portuguese')
+                     $scope.languageSettings = settings.portuguese;
+                     
+                  });
+            };
+       
 
             var currentLanguage = $scope.getLanguage();
 
+        
             if(currentLanguage == null){
                 $scope.setLanguage('english');
                 currentLanguage = $scope.getLanguage();
             }
 
 
-            //GET TO OBTAIN FOR A COOKIE LANGUAGE ITS SETTINGS LANGUAGE
-             $http.get('/settings.json').success(function(settings) {
-                 if($scope.getLanguage() === 'english')
-                 $scope.languageSettings = settings.english;
-
-                  if($scope.getLanguage() === 'spanish')
-                 $scope.languageSettings = settings.spanish;
-
-                  if($scope.getLanguage() === 'portuguese')
-                 $scope.languageSettings = settings.portuguese;
-              });
-
+            
+             $scope.getSettings();
+        
+        
 
         
-             //FUNCTION TO LOAD TRANLATED PAGE
+            //FUNCTION TO LOAD A TRANSLATED PAGE
             $scope.translateIndex = function (language) {
                 
                 $cookies.put('language', language);
@@ -139,11 +147,16 @@ var app = angular.module("app",['ngCookies']);
                  $http.get('/api.php/publications/all/' + language).success(function(data) {
                      $scope.publications = data;
                   });
-
+                
+                $scope.getSettings();
             };
             //////////////////////////END OF TRASNLATIONS PART///////////////////////////
         
 
+        
+
+        
+        
 
             //FUNCTION TO LOAD TRANLATED PUBLICATION
             $scope.translatePage = function (id, language) {
@@ -157,6 +170,13 @@ var app = angular.module("app",['ngCookies']);
                 $http.get('/api.php/author/id_language/' + id + '/' + language).success(function (data) {
                     $scope.author = data;
                 });
+                
+                
+                 $scope.getSettings();
+                
+                $http.get('/api.php/publications/all/' + language).success(function(data) {
+             $scope.publications = data;
+          });
 
             };
          //////////////////////////END OF TRASNLATIONS PART///////////////////////////
@@ -176,7 +196,7 @@ var app = angular.module("app",['ngCookies']);
           }
           
           
-          
+  
     });
 
 
