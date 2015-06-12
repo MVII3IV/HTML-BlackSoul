@@ -34,7 +34,7 @@
 
     <script type='text/javascript' src='js/generics/jquery-1.7.2.min.js'></script>
     <script type='text/javascript' src='bower_components/angular/angular.js'></script>
-    <script type='text/javascript' src='node_modules/angular-resource/angular-resource.js'></script>
+    <script type='text/javascript' src='bower_components/angular-cookies/angular-cookies.js'></script>
     <script type='text/javascript' src='js/angular-scripts/angularApp.js'></script>
     <script type='text/javascript' src='js/generics/btn.js'></script>
     <script type='text/javascript' src='js/generics/parallaxSlider.js'></script>
@@ -204,7 +204,7 @@
         <header class="motopress-wrapper header">
             <div class="container">
                 <div class="row">
-                    <div class="span12" data-motopress-wrapper-file="" data-motopress-wrapper-type="header" data-motopress-id="5524081812d55">
+                    <div class="span12" >
                         <div class="nav-wrap">
                             <div class="row">
                                 <div class="span12">
@@ -221,7 +221,7 @@
 
                                     <div class="logo pull-left">
                                         <a href="http://www.theblacksoulcompany.com" class="logo_h logo_h__img">
-                                            <img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265">
+                                            <img src="images/generics/BLACK%20SOUL%20LOGO.png" alt="Gameportal" title="" width="265" ng-show="false">
                                         </a>
                                     </div>
                                 </div>
@@ -332,6 +332,8 @@
                                 <div id="respond">
                                     <h3>HTML Editor</h3>
                                     
+               
+                                    
                                     <form enctype="multipart/form-data" action="{{action}}" method="post" id="commentform">
                                         
                                         <input ng-model="publication_id" type="text" name="publication_id" id="publication_id" ng-show="false">
@@ -339,10 +341,19 @@
                                         
                                         <select ng-model="action" name="action">
                                             <option value="" disabled selected>Select what you wanna do</option>
-                                            <option value="/API.php/addpublication">New publication</option>
-                                            <option value="/API.php/editpublication">Edit publication</option>
-                                            <option value="/API.php/delpublication">Delete publication</option>
+                                            <option value="/api.php/addpublication">New publication</option>
+                                            <option value="/api.php/editpublication">Edit publication</option>
+                                            <option value="/api.php/delpublication">Delete publication</option>
                                         </select><br/>
+                                        
+                                        
+                                        <select ng-model="language" name="language" ng-change="setLanguage(language)" >
+                                            <option value="" disabled selected>Select language</option>
+                                            <option value="English">English</option>
+                                            <option value="Spanish">Spanish</option>
+                                            <option value="Portuguese">Portuguese</option>
+                                        </select><br/>
+                                        
        
                                         <select ng-model="selectedCategory" ng-options="p as p.title for p in publications"  ng-change="editPublicationHasChange(selectedCategory)">
                                         <option value="" disabled selected >Select a publication to edit</option>

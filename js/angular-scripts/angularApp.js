@@ -68,11 +68,13 @@ var app = angular.module("app",['ngCookies']);
               });
         };
         
-        
-        $http.get(  '/api.php/publications/all' ).success(function(data) {        
-            $scope.publications = data;
-        });
-       
+        $scope.setLanguage = function(language){
+            language = language.toLowerCase();
+            alert(language);
+            $http.get(  '/api.php/publications/all/' + language ).success(function(data) {        
+                $scope.publications = data;
+            });
+        };
         
         $scope.editPublicationHasChange = function(publication){
             $scope.title =  publication.title; 
@@ -86,7 +88,7 @@ var app = angular.module("app",['ngCookies']);
         
         
         $scope.getAuthorById = function(id){
-              $http.get(  '/api.php/author/bypublicationid/' + id  ).success(function(data) {        
+              $http.get(  '/api.php/author/bypublicationid/' + id  +  '/english').success(function(data) {        
                   $scope.authorData = data;
               });     
          };

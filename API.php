@@ -10,7 +10,7 @@
     // 'localhost:3306', 'root', '', 'blacksoul' 
     function connectToDataBase()
     {
-        return mysqli_connect( 'localhost', 'theblack_admin', 'Blacksoul2015', 'theblack_blacksoul'    ); 
+        return mysqli_connect( 'localhost:3306', 'root', '', 'blacksoul'   ); 
         
     }
 
@@ -45,39 +45,7 @@
             echo $json_string;      
             
         });
-
-
-        //GET publications by id
-/*
-        $app->get('/publications/id/:id', function($id) {
-
-                $db  = connectToDataBase();
-                mysqli_set_charset($db, "utf8");
-            
-                $sql = 'SELECT * FROM publications_english WHERE publication_id = ' . $id; 
-                $result = mysqli_query($db,$sql); 
-
-
-
-
-            $rows = array();
-
-                while($row = mysqli_fetch_array($result)) 
-                { 
-                    $rows[] = $row;
-                }
-
-
-
-                mysqli_close($db); 
-
-
-             $json_string = json_encode($rows[0]);
-             echo $json_string;      
-        });
-*/
-
-        
+    
 
         //GET A AUTHOR BY ID
         $app->get('/author/bypublicationid/:id/:language', function($id,$language) {
@@ -142,7 +110,8 @@
             
             $uploaddir = 'images/publications/';
             $uploadfile = $uploaddir . basename($_FILES['image']['name']);
-
+            $language = $_POST['language'];
+            
             echo '<pre>';
             if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadfile)) {
                 echo "El archivo es válido y fue cargado exitosamente.\n";
@@ -165,7 +134,7 @@
 
             echo $uploadfile;
 
-            $sql = 'INSERT INTO publications_english (title, content, author_id, date, preview_image, type) VALUES (\'' 
+            $sql = 'INSERT INTO publications_'.$language.' (title, content, author_id, date, preview_image, type) VALUES (\'' 
                 . $_POST['title'] .  '\',\'' 
                 . $_POST['content'] .  '\',\'' 
                 . $authorID .  '\',\'' 
@@ -185,11 +154,11 @@
         $app->post('/editpublication', function () {     
 
 
-            
+            $language = $_POST['language'];
             $db  = connectToDataBase();
             mysqli_set_charset($db, "utf8");
             
-            $sql = 'UPDATE publications_english SET title = @title, content = @content, date = @date, type = @type';
+            $sql = 'UPDATE publications_' .$language. ' SET title = @title, content = @content, date = @date, type = @type';
             
             
             $sql = str_replace("@title",  '\'' . $_POST['title'] . '\'' , $sql);
@@ -242,10 +211,12 @@
 
         $app->post('/delpublication', function () {     
         
+            $language = $_POST['language'];
+            
             $db  = connectToDataBase();
             mysqli_set_charset($db, "utf8");
             
-            $sql = 'DELETE FROM publications_englishWHERE publication_id = @publication_id';
+            $sql = 'DELETE FROM publications_'.$language.' hWHERE publication_id = @publication_id';
             $sql = str_replace("@publication_id",  $_POST['publication_id'] , $sql);   
             
             echo $sql;
